@@ -63,5 +63,8 @@ CREATE TABLE HECHOS_CC (
                 total_espera INTEGER NOT NULL,
                 total_notas INTEGER NOT NULL,
                 total_en_cola INTEGER NOT NULL,
-                cantidad_llamadas INTEGER NOT NULL
+                cantidad_llamadas INTEGER NOT NULL,
+                CONSTRAINT FK_DIM_LLAMADA FOREIGN KEY (id_llamada) REFERENCES DIM_LLAMADAS(id_llamada),
+                CONSTRAINT FK_DIM_COLABORADOR FOREIGN KEY (id_colaborador) REFERENCES DIM_COLABORADOR(id_colaborador),
+                CONSTRAINT FK_DIM_FECHA FOREIGN KEY (id_fecha) REFERENCES DIM_FECHA(id_fecha)
 );
