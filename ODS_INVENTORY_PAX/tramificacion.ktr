@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2018/04/04 10:07:19.279</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/04/12 11:08:04.967</modified_date>
+    <modified_date>2018/04/17 11:36:52.405</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -539,14 +539,14 @@
 	  ,c.lift_status
 	  ,isnull(sum(c.booked),0) as booked
       ,a.routing
-  FROM ods_temporales.dbo.ods_inv_i_book_tramo a
+  FROM ods_temporales.dbo.ods_inv_t_book_tramo a
 
-  left join ods_temporales.dbo.ods_inv_i_leg_segment b on 
+  left join ods_temporales.dbo.ods_inv_t_leg_segment b on 
 		a.id_flight=b.id_flight
 	and a.boardpoint  collate database_default = b.boardpoint  collate database_default
     and a.offpoint    collate database_default = b.offpoint    collate database_default
 
-  left join ods_temporales.dbo.ods_inv_i_book_segment c on 
+  left join ods_temporales.dbo.ods_inv_t_book_segment c on 
 		b.id_flight=c.id_flight 
 	and b.departurecitycode  collate database_default  = c.departure_city_code  collate database_default
     and b.arrivalcitycode    collate database_default  = c.arrival_city_code    collate database_default
@@ -595,49 +595,6 @@
     </GUI>
   </step>
   <step>
-    <name>O_ODS_INVENTORY_BOOK</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>10.30.1.74 - ODS_INVENTORY_PAX</connection>
-    <schema/>
-    <table>O_ODS_INVENTORY_BOOK</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>411</xloc>
-      <yloc>155</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>ODS_INVENTORY_REAL</name>
     <type>TableInput</type>
     <description/>
@@ -674,14 +631,14 @@
 	  ,c.lift_status
 	  ,isnull(sum(c.booked),0) as booked
       ,a.routing
-  FROM ods_temporales.dbo.ods_inv_i_real_tramo a
+  FROM ods_temporales.dbo.ods_inv_t_real_tramo a
 
-  left join ods_temporales.dbo.ods_inv_i_leg_segment b on 
+  left join ods_temporales.dbo.ods_inv_t_leg_segment b on 
 		a.id_flight=b.id_flight
 	and a.boardpoint  collate database_default = b.boardpoint  collate database_default
     and a.offpoint    collate database_default = b.offpoint    collate database_default
 
-  left join ods_temporales.dbo.ods_inv_i_real_segment c on 
+  left join ods_temporales.dbo.ods_inv_t_real_segment c on 
 		b.id_flight=c.id_flight 
 	and b.departurecitycode  collate database_default  = c.departure_city_code  collate database_default
     and b.arrivalcitycode    collate database_default  = c.arrival_city_code    collate database_default
@@ -725,6 +682,49 @@
     <GUI>
       <xloc>205</xloc>
       <yloc>273</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>O_ODS_INVENTORY_BOOK</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>10.30.1.74 - ODS_INVENTORY_PAX</connection>
+    <schema/>
+    <table>O_ODS_INVENTORY_BOOK</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>411</xloc>
+      <yloc>155</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

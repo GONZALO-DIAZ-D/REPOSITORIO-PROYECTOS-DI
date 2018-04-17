@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2018/03/22 15:50:04.956</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018/04/12 12:13:34.947</modified_date>
+  <modified_date>2018/04/17 14:41:27.339</modified_date>
   <parameters>
     <parameter>
       <name>fecha_proceso</name>
@@ -363,8 +363,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>212</xloc>
-      <yloc>222</yloc>
+      <xloc>90</xloc>
+      <yloc>269</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -373,8 +373,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>787</xloc>
-      <yloc>222</yloc>
+      <xloc>846</xloc>
+      <yloc>269</yloc>
     </entry>
     <entry>
       <name>leg_bir</name>
@@ -415,8 +415,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>319</xloc>
-      <yloc>222</yloc>
+      <xloc>216</xloc>
+      <yloc>269</yloc>
     </entry>
     <entry>
       <name>segment_bir</name>
@@ -457,8 +457,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>436</xloc>
-      <yloc>222</yloc>
+      <xloc>342</xloc>
+      <yloc>269</yloc>
     </entry>
     <entry>
       <name>tramificacion</name>
@@ -494,8 +494,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>670</xloc>
-      <yloc>222</yloc>
+      <xloc>594</xloc>
+      <yloc>269</yloc>
     </entry>
     <entry>
       <name>Mail</name>
@@ -535,8 +535,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>499</xloc>
-      <yloc>112</yloc>
+      <xloc>468</xloc>
+      <yloc>152</yloc>
     </entry>
     <entry>
       <name>Abort job</name>
@@ -546,18 +546,26 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>671</xloc>
-      <yloc>112</yloc>
+      <xloc>846</xloc>
+      <yloc>152</yloc>
     </entry>
     <entry>
       <name>limpia tramificacion</name>
       <description/>
       <type>SQL</type>
-      <sql>delete from ods_inventory_pax.dbo.ods_inventory_book 
-where view_date in (select distinct view_date from ods_temporales.dbo.ods_inv_i_book_tramo);
+      <sql>delete from ods_inventory_pax.dbo.o_ods_inventory_book 
+where view_date in (select distinct view_date from ods_temporales.dbo.ods_inv_t_book_tramo);
 
-delete from ods_inventory_pax.dbo.ods_inventory_real
-where id_flight in (select id_flight from ods_temporales.dbo.ods_inv_i_real_tramo);</sql>
+delete from ods_inventory_pax.dbo.o_ods_inventory_real
+where id_flight in (select id_flight from ods_temporales.dbo.ods_inv_t_real_tramo);
+
+delete from ods_inventory_pax.dbo.o_ods_inventory_consolidado
+where (cast(view_date as varchar) in (select distinct cast(view_date as varchar) from ods_temporales.dbo.ods_inv_t_book_tramo))
+or (id_flight in (select id_flight from ods_temporales.dbo.ods_inv_t_real_tramo) and view_date='Real');
+
+delete from reporte_pbi.dbo.o_ods_inventory_consolidado
+where (cast(view_date as varchar) in (select distinct cast(view_date as varchar) from ods_temporales.dbo.ods_inv_t_book_tramo))
+or (id_flight in (select id_flight from ods_temporales.dbo.ods_inv_t_real_tramo) and view_date='Real');</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -566,23 +574,51 @@ where id_flight in (select id_flight from ods_temporales.dbo.ods_inv_i_real_tram
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>553</xloc>
-      <yloc>222</yloc>
+      <xloc>468</xloc>
+      <yloc>269</yloc>
+    </entry>
+    <entry>
+      <name>carga_consolidado</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>carga_consolidado</transname>
+      <directory>${Internal.Entry.Current.Directory}</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>720</xloc>
+      <yloc>269</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>leg_bir</from>
       <to>segment_bir</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>tramificacion</from>
-      <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -660,6 +696,33 @@ where id_flight in (select id_flight from ods_temporales.dbo.ods_inv_i_real_tram
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>tramificacion</from>
+      <to>carga_consolidado</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>carga_consolidado</from>
+      <to>Mail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>carga_consolidado</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
