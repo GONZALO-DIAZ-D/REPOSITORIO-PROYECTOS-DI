@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2018/03/22 15:50:04.956</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018/04/17 14:41:27.339</modified_date>
+  <modified_date>2018/04/18 15:13:25.300</modified_date>
   <parameters>
     <parameter>
       <name>fecha_proceso</name>
@@ -556,16 +556,38 @@
       <sql>delete from ods_inventory_pax.dbo.o_ods_inventory_book 
 where view_date in (select distinct view_date from ods_temporales.dbo.ods_inv_t_book_tramo);
 
+
 delete from ods_inventory_pax.dbo.o_ods_inventory_real
-where id_flight in (select id_flight from ods_temporales.dbo.ods_inv_t_real_tramo);
+where 
+		departure_date&lt;= (select max(departure_date) from ods_temporales.dbo.ods_inv_t_real_tramo)
+	and departure_date>= (select min(departure_date) from ods_temporales.dbo.ods_inv_t_real_tramo)
+;
+
 
 delete from ods_inventory_pax.dbo.o_ods_inventory_consolidado
-where (cast(view_date as varchar) in (select distinct cast(view_date as varchar) from ods_temporales.dbo.ods_inv_t_book_tramo))
-or (id_flight in (select id_flight from ods_temporales.dbo.ods_inv_t_real_tramo) and view_date='Real');
+where 
+(
+	cast(view_date as varchar) in (select distinct cast(view_date as varchar) from ods_temporales.dbo.ods_inv_t_book_tramo)
+)
+or 
+(
+		departure_date&lt;= (select max(departure_date) from ods_temporales.dbo.ods_inv_t_real_tramo)
+	and departure_date>= (select min(departure_date) from ods_temporales.dbo.ods_inv_t_real_tramo)
+	and view_date='Real'
+);
+
 
 delete from reporte_pbi.dbo.o_ods_inventory_consolidado
-where (cast(view_date as varchar) in (select distinct cast(view_date as varchar) from ods_temporales.dbo.ods_inv_t_book_tramo))
-or (id_flight in (select id_flight from ods_temporales.dbo.ods_inv_t_real_tramo) and view_date='Real');</sql>
+where 
+(
+	cast(view_date as varchar) in (select distinct cast(view_date as varchar) from ods_temporales.dbo.ods_inv_t_book_tramo)
+)
+or 
+(
+		departure_date&lt;= (select max(departure_date) from ods_temporales.dbo.ods_inv_t_real_tramo)
+	and departure_date>= (select min(departure_date) from ods_temporales.dbo.ods_inv_t_real_tramo)
+	and view_date='Real'
+);</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
