@@ -7,7 +7,7 @@
   <created_user>-</created_user>
   <created_date>2018/04/12 12:44:33.514</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018/04/17 16:00:06.330</modified_date>
+  <modified_date>2018/05/14 11:30:54.177</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -806,7 +806,7 @@ from ods_operaciones.dbo.o_ods_operaciones;
 insert into ODS_OPE_T_LEG
 select
 cast(datop as date) operation_date,
-cast(dateadd(hour,-3,cast(replace(std,'.',':') as datetime)) as date) comercial_date,
+cast(dateadd(hour,case when b.diferencia_horaria is null then -3 else b.diferencia_horaria end,cast(replace(std,'.',':') as datetime)) as date) comercial_date,
 case when len(fltid)=7 then right(fltid,4)
 	 when len(fltid)=8 then right(fltid,5)
 	 end  as operation_flight_number,
@@ -856,6 +856,8 @@ from
 		'' as CHARTERER 
 	from ODS_TEMPORALES.dbo.ODS_OPE_I_PLAN_LEG
 ) a
+left join ODS_AUXILIAR.dbo.ZONA_HORARIA b on
+	a.DEPSTN=b.iata
 order by datop;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
