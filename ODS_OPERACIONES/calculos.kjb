@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>calculos</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <directory>/OPERACIONES/ODS_OPERACIONAL</directory>
+  <directory>/OPERACIONES/ODS_OPERACIONES</directory>
   <created_user>-</created_user>
-  <created_date>2018/04/12 12:44:33.514</created_date>
-  <modified_user>-</modified_user>
-  <modified_date>2018/05/14 11:30:54.177</modified_date>
+  <created_date>2018/04/12 12:44:33.513</created_date>
+  <modified_user>admin</modified_user>
+  <modified_date>2018/05/24 10:19:44.662</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -617,6 +618,12 @@ null,
 null,
 null,
 null,
+null,
+null,
+null,
+null,
+null,
+null,
 null
 from ODS_TEMPORALES.dbo.ODS_OPE_T_LEG a
 left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
@@ -684,7 +691,29 @@ left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a on
 		a.operation_date=b.operation_date
 	and a.operation_flight_number=b.operation_flight_number
 	and a.boardpoint=b.boardpoint
-	and a.offpoint=b.offpoint;</sql>
+	and a.offpoint=b.offpoint;
+
+
+
+-- Actualiza los valores de combustible descargados (dos meses moviles)
+
+update a
+set a.block_off_fuel=b.block_off_fuel,
+	a.block_on_fuel=b.block_on_fuel,
+	a.burn_fuel=b.consumo_klg,
+	a.fuel_uplift=b.carguio_lts,
+	a.apu_burn_fuel=b.apu_kg,
+	a.source_fuel=(case when b.fuente='ok' then 'FL' else 'FS' end)
+from ODS_TEMPORALES.dbo.ODS_OPE_I_COMBUSTIBLE b
+left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a on
+		a.operation_date=b.fecha_utc
+	and a.flight_number=b.vuelo
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+	and a.status=b.status
+
+
+</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -1116,27 +1145,6 @@ and parametro='PRK_BRK_ON';</sql>
     </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>Agregar zona horaria!</note>
-      <xloc>509</xloc>
-      <yloc>261</yloc>
-      <width>124</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <attributes>
     <group>
