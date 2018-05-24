@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job>
+  <name>calculos</name>
+  <description/>
+  <extended_description/>
+  <job_version/>
+  <directory>/OPERACIONES/ODS_OPERACIONES</directory>
+  <created_user>-</created_user>
+  <created_date>2018/04/12 12:44:33.513</created_date>
+  <modified_user>admin</modified_user>
+  <modified_date>2018/05/24 11:30:13.045</modified_date>
+  <parameters>
+    </parameters>
+  <connection>
+    <name>10.30.1.74 - ODS_OPERACIONES</name>
+    <server>10.30.1.74</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>ODS_OPERACIONES</database>
+    <port>1433</port>
+    <username>di_desarrollo</username>
+    <password>Encrypted 2be98afc86aa7f2e4af10fc208fcae194</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>10.30.1.74 - ODS_TEMPORALES</name>
+    <server>10.30.1.74</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>ODS_TEMPORALES</database>
+    <port>1433</port>
+    <username>di_desarrollo</username>
+    <password>Encrypted 2be98afc86aa7f2e4af10fc208fcae194</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>10.30.1.74 - REPORTE_PBI</name>
+    <server>10.30.1.74</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>REPORTE_PBI</database>
+    <port>1433</port>
+    <username>di_desarrollo</username>
+    <password>Encrypted 2be98afc86aa7f2e4af10fc208fcae194</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <slaveservers>
+    </slaveservers>
+  <job-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
+    <field>
+      <id>ID_JOB</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>JOBNAME</name>
+    </field>
+    <field>
+      <id>STATUS</id>
+      <enabled>Y</enabled>
+      <name>STATUS</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>STARTDATE</id>
+      <enabled>Y</enabled>
+      <name>STARTDATE</name>
+    </field>
+    <field>
+      <id>ENDDATE</id>
+      <enabled>Y</enabled>
+      <name>ENDDATE</name>
+    </field>
+    <field>
+      <id>LOGDATE</id>
+      <enabled>Y</enabled>
+      <name>LOGDATE</name>
+    </field>
+    <field>
+      <id>DEPDATE</id>
+      <enabled>Y</enabled>
+      <name>DEPDATE</name>
+    </field>
+    <field>
+      <id>REPLAYDATE</id>
+      <enabled>Y</enabled>
+      <name>REPLAYDATE</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>Y</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>EXECUTING_SERVER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_SERVER</name>
+    </field>
+    <field>
+      <id>EXECUTING_USER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_USER</name>
+    </field>
+    <field>
+      <id>START_JOB_ENTRY</id>
+      <enabled>N</enabled>
+      <name>START_JOB_ENTRY</name>
+    </field>
+    <field>
+      <id>CLIENT</id>
+      <enabled>N</enabled>
+      <name>CLIENT</name>
+    </field>
+  </job-log-table>
+  <jobentry-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>TRANSNAME</name>
+    </field>
+    <field>
+      <id>JOBENTRYNAME</id>
+      <enabled>Y</enabled>
+      <name>STEPNAME</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>RESULT</id>
+      <enabled>Y</enabled>
+      <name>RESULT</name>
+    </field>
+    <field>
+      <id>NR_RESULT_ROWS</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_ROWS</name>
+    </field>
+    <field>
+      <id>NR_RESULT_FILES</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_FILES</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>N</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>COPY_NR</id>
+      <enabled>N</enabled>
+      <name>COPY_NR</name>
+    </field>
+  </jobentry-log-table>
+  <channel-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>LOGGING_OBJECT_TYPE</id>
+      <enabled>Y</enabled>
+      <name>LOGGING_OBJECT_TYPE</name>
+    </field>
+    <field>
+      <id>OBJECT_NAME</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_NAME</name>
+    </field>
+    <field>
+      <id>OBJECT_COPY</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_COPY</name>
+    </field>
+    <field>
+      <id>REPOSITORY_DIRECTORY</id>
+      <enabled>Y</enabled>
+      <name>REPOSITORY_DIRECTORY</name>
+    </field>
+    <field>
+      <id>FILENAME</id>
+      <enabled>Y</enabled>
+      <name>FILENAME</name>
+    </field>
+    <field>
+      <id>OBJECT_ID</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_ID</name>
+    </field>
+    <field>
+      <id>OBJECT_REVISION</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_REVISION</name>
+    </field>
+    <field>
+      <id>PARENT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>PARENT_CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>ROOT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>ROOT_CHANNEL_ID</name>
+    </field>
+  </channel-log-table>
+  <pass_batchid>N</pass_batchid>
+  <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>94</xloc>
+      <yloc>206</yloc>
+    </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1208</xloc>
+      <yloc>206</yloc>
+    </entry>
+    <entry>
+      <name>bajada_live</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>bajada_live</transname>
+      <directory>${Internal.Entry.Current.Directory}</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>398</xloc>
+      <yloc>206</yloc>
+    </entry>
+    <entry>
+      <name>Mail</name>
+      <description/>
+      <type>MAIL</type>
+      <server>${smtp_server}</server>
+      <port>${smtp_port}</port>
+      <destination>${mail_to}</destination>
+      <destinationCc>${mail_cc}</destinationCc>
+      <destinationBCc/>
+      <replyto>${sender_address}</replyto>
+      <replytoname>${sender_name}</replytoname>
+      <subject>ERROR EN CARGA ODS OPERACIONES</subject>
+      <include_date>N</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment>ERROR EN CARGA ODS OPERACIONES</comment>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user>${sender_address}</auth_user>
+      <auth_password>Encrypted 2be98afc86aa7f2e49812b73e8cc2fe82</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>722</xloc>
+      <yloc>73</yloc>
+    </entry>
+    <entry>
+      <name>Abort job</name>
+      <description/>
+      <type>ABORT</type>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1208</xloc>
+      <yloc>73</yloc>
+    </entry>
+    <entry>
+      <name>carga_ods_operacional</name>
+      <description/>
+      <type>SQL</type>
+      <sql>-- Inserta los tramos que no existen en el ODS OPERACIONES
+
+insert into ODS_OPERACIONES.dbo.O_ODS_OPERACIONES
+select
+a.operation_date,
+a.comercial_date as local_date,
+a.operation_flight_number,
+a.comercial_flight_number as flight_number,
+a.boardpoint,
+a.offpoint,
+a.std,
+a.sta,
+a.stdcorr,
+a.status,
+a.etd,
+a.eta,
+a.atd,
+a.toff,
+a.tdwn,
+a.ata,
+a.depdelay1,
+a.depdur1,
+a.depdelay2,
+a.depdur2,
+a.depdelay3,
+a.depdur3,
+a.gate,
+a.orig_actyp,
+a.actyp,
+a.ac,
+a.arrdelay1,
+a.arrdur1,
+a.arrdelay2,
+a.arrdur2,
+a.arrdelay3,
+a.arrdur3,
+a.depgate,
+a.arrgate,
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+from ODS_TEMPORALES.dbo.ODS_OPE_T_LEG a
+left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
+		a.operation_date=b.operation_date
+	and a.operation_flight_number=b.operation_flight_number
+	and a.boardpoint=b.boardpoint
+	and a.offpoint=b.offpoint
+where b.operation_date is null;
+
+
+-- Borra los tramos del ODS que no existen en el Plan Operacional
+
+delete b
+from ODS_TEMPORALES.dbo.ODS_OPE_T_LEG a
+right join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
+		a.operation_date=b.operation_date
+	and a.operation_flight_number=b.operation_flight_number
+	and a.boardpoint=b.boardpoint
+	and a.offpoint=b.offpoint
+where a.operation_date is null
+and b.operation_date>cast(getdate() as date);
+
+
+
+-- Actualiza los valores de los tramos del ODS con los datos Live desde PDC
+
+update a
+set 
+a.operation_date=b.operation_date,
+a.local_date=b.comercial_date,
+a.operation_flight_number=b.operation_flight_number,
+a.flight_number=b.comercial_flight_number,
+a.boardpoint=b.boardpoint,
+a.offpoint=b.offpoint,
+a.std=b.std,
+a.sta=b.sta,
+a.stdcorr=b.stdcorr,
+a.status=b.status,
+a.etd=b.etd,
+a.eta=b.eta,
+a.atd=b.atd,
+a.toff=b.toff,
+a.tdwn=b.tdwn,
+a.ata=b.ata,
+a.depdelay1=b.depdelay1,
+a.depdur1=b.depdur1,
+a.depdelay2=b.depdelay2,
+a.depdur2=b.depdur2,
+a.depdelay3=b.depdelay3,
+a.depdur3=b.depdur3,
+a.gate=b.gate,
+a.orig_actyp=b.orig_actyp,
+a.actyp=b.actyp,
+a.ac=b.ac,
+a.arrdelay1=b.arrdelay1,
+a.arrdur1=b.arrdur1,
+a.arrdelay2=b.arrdelay2,
+a.arrdur2=b.arrdur2,
+a.arrdelay3=b.arrdelay3,
+a.arrdur3=b.arrdur3,
+a.depgate=b.depgate,
+a.arrgate=b.arrgate
+from ODS_TEMPORALES.dbo.ODS_OPE_T_LEG b
+left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a on
+		a.operation_date=b.operation_date
+	and a.operation_flight_number=b.operation_flight_number
+	and a.boardpoint=b.boardpoint
+	and a.offpoint=b.offpoint;
+
+
+
+-- Actualiza los valores de combustible descargados (dos meses moviles)
+
+update a
+set a.block_off_fuel=b.block_off_fuel,
+	a.block_on_fuel=b.block_on_fuel,
+	a.burn_fuel=b.consumo_klg,
+	a.fuel_uplift=b.carguio_lts,
+	a.apu_burn_fuel=b.apu_kg,
+	a.source_fuel=(case when b.fuente='ok' then 'FL' else 'FS' end)
+from ODS_TEMPORALES.dbo.ODS_OPE_I_COMBUSTIBLE b
+left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a on
+		a.operation_date=b.fecha_utc
+	and a.local_date=b.fecha_local
+	and a.flight_number=b.vuelo
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+	and a.status=b.status
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_OPERACIONES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>722</xloc>
+      <yloc>206</yloc>
+    </entry>
+    <entry>
+      <name>carga_reportes_pbi</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table reporte_pbi.dbo.o_ods_operaciones;
+
+insert into reporte_pbi.dbo.o_ods_operaciones
+select 
+*
+from ods_operaciones.dbo.o_ods_operaciones;
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - REPORTE_PBI</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1046</xloc>
+      <yloc>206</yloc>
+    </entry>
+    <entry>
+      <name>bajada_plan</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>bajada_plan</transname>
+      <directory>${Internal.Entry.Current.Directory}</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>236</xloc>
+      <yloc>342</yloc>
+    </entry>
+    <entry>
+      <name>Simple evaluation</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname/>
+      <variablename>${hora}</variablename>
+      <fieldtype>datetime</fieldtype>
+      <mask>HH:mm:ss</mask>
+      <comparevalue>00:20:00</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>smaller</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>236</xloc>
+      <yloc>206</yloc>
+    </entry>
+    <entry>
+      <name>DUMMY</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>N</start>
+      <dummy>Y</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>398</xloc>
+      <yloc>342</yloc>
+    </entry>
+    <entry>
+      <name>ods_ope_t_leg</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table ODS_OPE_T_LEG;
+
+insert into ODS_OPE_T_LEG
+select
+cast(datop as date) operation_date,
+cast(dateadd(hour,case when b.diferencia_horaria is null then -3 else b.diferencia_horaria end,cast(replace(std,'.',':') as datetime)) as date) comercial_date,
+case when len(fltid)=7 then right(fltid,4)
+	 when len(fltid)=8 then right(fltid,5)
+	 end  as operation_flight_number,
+case when len(fltid)=7 then cast(replace(replace(replace(right(fltid,4),'A',''),'B',''),'Z','') as int)
+	 when len(fltid)=8 then cast(replace(replace(replace(right(fltid,5),'A',''),'B',''),'Z','') as int)
+	 end as comercial_flight_number,
+DEPSTN as boardpoint,
+ARRSTN as offpoint,
+cast(replace(std,'.',':') as datetime) as std,
+cast(replace(sta,'.',':') as datetime) as sta,
+stdcorr,
+status,
+cast(replace(etd,'.',':')  as datetime) as etd,
+cast(replace(eta,'.',':')  as datetime) as eta,
+cast(replace(atd,'.',':')  as datetime) as atd,
+cast(replace(toff,'.',':') as datetime)  as toff,
+cast(replace(tdwn,'.',':') as datetime)  as tdwn,
+cast(replace(ata,'.',':')  as datetime) as ata,
+depdelay1,
+depdur1,
+depdelay2,
+depdur2,
+depdelay3,
+depdur3,
+gate,
+orig_actyp,
+actyp,
+right(ac,3) as ac,
+arrdelay1,
+arrdur1,
+arrdelay2,
+arrdur2,
+arrdelay3,
+arrdur3,
+depgate,
+arrgate,
+row_number() over (partition by datop,fltid,depstn,arrstn,status order by datop,fltid,depstn,arrstn,status) as duplicado
+from
+(
+	select 
+		* 
+	from 
+	ODS_TEMPORALES.dbo.ODS_OPE_I_LEG
+	UNION all
+	select 
+		*,
+		'' as CHARTERER 
+	from ODS_TEMPORALES.dbo.ODS_OPE_I_PLAN_LEG
+) a
+left join ODS_AUXILIAR.dbo.ZONA_HORARIA b on
+	a.DEPSTN=b.iata
+order by datop;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>560</xloc>
+      <yloc>206</yloc>
+    </entry>
+    <entry>
+      <name>agrega acars</name>
+      <description/>
+      <type>SQL</type>
+      <sql>update a
+set 
+closed_door=cast(CONVERT(DATETIME, CONVERT(varchar(20), b.fecha,101)  + ' ' + CONVERT(varchar(8), b.hora, 108)) as datetime)
+from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
+left join ODS_OPERACIONES.dbo.O_PARAMETRO_ACARS b on
+		a.ac=b.matricula
+	and a.operation_date=b.fecha
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+where b.parametro is not null
+and parametro='DOOR_CLOSED';
+
+update a
+set 
+open_door=cast(CONVERT(DATETIME, CONVERT(varchar(20), b.fecha,101)  + ' ' + CONVERT(varchar(8), b.hora, 108)) as datetime)
+from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
+left join ODS_OPERACIONES.dbo.O_PARAMETRO_ACARS b on
+		a.ac=b.matricula
+	and a.operation_date=b.fecha
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+where b.parametro is not null
+and parametro='DOOR_OPEN';
+
+update a
+set 
+engine_1_start=cast(CONVERT(DATETIME, CONVERT(varchar(20), b.fecha,101)  + ' ' + CONVERT(varchar(8), b.hora, 108)) as datetime)
+from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
+left join ODS_OPERACIONES.dbo.O_PARAMETRO_ACARS b on
+		a.ac=b.matricula
+	and a.operation_date=b.fecha
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+where b.parametro is not null
+and parametro='ENGINE1_START';
+
+update a
+set 
+engine_1_stop=cast(CONVERT(DATETIME, CONVERT(varchar(20), b.fecha,101)  + ' ' + CONVERT(varchar(8), b.hora, 108)) as datetime)
+from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
+left join ODS_OPERACIONES.dbo.O_PARAMETRO_ACARS b on
+		a.ac=b.matricula
+	and a.operation_date=b.fecha
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+where b.parametro is not null
+and parametro='ENG1_STOP_REP';
+
+update a
+set 
+engine_2_start=cast(CONVERT(DATETIME, CONVERT(varchar(20), b.fecha,101)  + ' ' + CONVERT(varchar(8), b.hora, 108)) as datetime)
+from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
+left join ODS_OPERACIONES.dbo.O_PARAMETRO_ACARS b on
+		a.ac=b.matricula
+	and a.operation_date=b.fecha
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+where b.parametro is not null
+and parametro='ENGINE2_START';
+
+update a
+set 
+engine_2_stop=cast(CONVERT(DATETIME, CONVERT(varchar(20), b.fecha,101)  + ' ' + CONVERT(varchar(8), b.hora, 108)) as datetime)
+from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
+left join ODS_OPERACIONES.dbo.O_PARAMETRO_ACARS b on
+		a.ac=b.matricula
+	and a.operation_date=b.fecha
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+where b.parametro is not null
+and parametro='ENG2_STOP_REP';
+
+update a
+set 
+parking_break_on=cast(CONVERT(DATETIME, CONVERT(varchar(20), b.fecha,101)  + ' ' + CONVERT(varchar(8), b.hora, 108)) as datetime)
+from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
+left join ODS_OPERACIONES.dbo.O_PARAMETRO_ACARS b on
+		a.ac=b.matricula
+	and a.operation_date=b.fecha
+	and a.boardpoint=b.origen
+	and a.offpoint=b.destino
+where b.parametro is not null
+and parametro='PRK_BRK_ON';</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_OPERACIONES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>884</xloc>
+      <yloc>206</yloc>
+    </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>Mail</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>carga_reportes_pbi</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>bajada_live</from>
+      <to>Mail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>carga_ods_operacional</from>
+      <to>Mail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>carga_reportes_pbi</from>
+      <to>Mail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Simple evaluation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Simple evaluation</from>
+      <to>bajada_live</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Simple evaluation</from>
+      <to>bajada_plan</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>bajada_plan</from>
+      <to>DUMMY</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>DUMMY</from>
+      <to>bajada_live</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>bajada_live</from>
+      <to>ods_ope_t_leg</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ods_ope_t_leg</from>
+      <to>carga_ods_operacional</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ods_ope_t_leg</from>
+      <to>Mail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>carga_ods_operacional</from>
+      <to>agrega acars</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>agrega acars</from>
+      <to>carga_reportes_pbi</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>agrega acars</from>
+      <to>Mail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+  </notepads>
+  <attributes>
+    <group>
+      <name>METASTORE.pentaho</name>
+      <attribute>
+        <key>Default Run Configuration</key>
+        <value>{"namespace":"pentaho","id":"Default Run Configuration","name":"Default Run Configuration","description":"Defines a default run configuration","metaStoreName":null}</value>
+      </attribute>
+    </group>
+    <group>
+      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
+      <attribute>
+        <key>Pentaho local</key>
+        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"pentaho","value":"N"},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
+      </attribute>
+    </group>
+  </attributes>
+</job>
