@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2018/04/12 12:44:33.513</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2018/05/24 10:19:44.662</modified_date>
+  <modified_date>2018/05/25 10:28:05.437</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -624,7 +624,8 @@ null,
 null,
 null,
 null,
-null
+null,
+a.leg_number
 from ODS_TEMPORALES.dbo.ODS_OPE_T_LEG a
 left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
 		a.operation_date=b.operation_date
@@ -707,11 +708,12 @@ set a.block_off_fuel=b.block_off_fuel,
 from ODS_TEMPORALES.dbo.ODS_OPE_I_COMBUSTIBLE b
 left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a on
 		a.operation_date=b.fecha_utc
+	and a.local_date=b.fecha_local
 	and a.flight_number=b.vuelo
 	and a.boardpoint=b.origen
 	and a.offpoint=b.destino
-	and a.status=b.status
-
+	and a.ac=b.matricula
+	and a.leg_number=b.leg
 
 </sql>
       <useVariableSubstitution>F</useVariableSubstitution>
@@ -872,7 +874,8 @@ arrdelay3,
 arrdur3,
 depgate,
 arrgate,
-row_number() over (partition by datop,fltid,depstn,arrstn,status order by datop,fltid,depstn,arrstn,status) as duplicado
+row_number() over (partition by datop,fltid,depstn,arrstn,status order by datop,fltid,depstn,arrstn,status) as duplicado,
+legno
 from
 (
 	select 
