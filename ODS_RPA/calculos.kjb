@@ -1,0 +1,1672 @@
+<job>
+  <name>calculos</name>
+  <description/>
+  <extended_description/>
+  <job_version/>
+  <directory>/COMERCIAL/RPA</directory>
+  <created_user>-</created_user>
+  <created_date>2018/04/24 12:28:28.747</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2018/06/15 11:47:58.865</modified_date>
+  <parameters>
+    </parameters>
+  <connection>
+    <name>10.30.1.74 - ODS_RPA</name>
+    <server>10.30.1.74</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>ODS_RPA</database>
+    <port>1433</port>
+    <username>di_desarrollo</username>
+    <password>Encrypted 2be98afc86aa7f2e4af10fc208fcae194</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>10.30.1.74 - ODS_TEMPORALES</name>
+    <server>10.30.1.74</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>ODS_TEMPORALES</database>
+    <port>1433</port>
+    <username>di_desarrollo</username>
+    <password>Encrypted 2be98afc86aa7f2e4af10fc208fcae194</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <slaveservers>
+    </slaveservers>
+  <job-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
+    <field>
+      <id>ID_JOB</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>JOBNAME</name>
+    </field>
+    <field>
+      <id>STATUS</id>
+      <enabled>Y</enabled>
+      <name>STATUS</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>STARTDATE</id>
+      <enabled>Y</enabled>
+      <name>STARTDATE</name>
+    </field>
+    <field>
+      <id>ENDDATE</id>
+      <enabled>Y</enabled>
+      <name>ENDDATE</name>
+    </field>
+    <field>
+      <id>LOGDATE</id>
+      <enabled>Y</enabled>
+      <name>LOGDATE</name>
+    </field>
+    <field>
+      <id>DEPDATE</id>
+      <enabled>Y</enabled>
+      <name>DEPDATE</name>
+    </field>
+    <field>
+      <id>REPLAYDATE</id>
+      <enabled>Y</enabled>
+      <name>REPLAYDATE</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>Y</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>EXECUTING_SERVER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_SERVER</name>
+    </field>
+    <field>
+      <id>EXECUTING_USER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_USER</name>
+    </field>
+    <field>
+      <id>START_JOB_ENTRY</id>
+      <enabled>N</enabled>
+      <name>START_JOB_ENTRY</name>
+    </field>
+    <field>
+      <id>CLIENT</id>
+      <enabled>N</enabled>
+      <name>CLIENT</name>
+    </field>
+  </job-log-table>
+  <jobentry-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>TRANSNAME</name>
+    </field>
+    <field>
+      <id>JOBENTRYNAME</id>
+      <enabled>Y</enabled>
+      <name>STEPNAME</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>RESULT</id>
+      <enabled>Y</enabled>
+      <name>RESULT</name>
+    </field>
+    <field>
+      <id>NR_RESULT_ROWS</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_ROWS</name>
+    </field>
+    <field>
+      <id>NR_RESULT_FILES</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_FILES</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>N</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>COPY_NR</id>
+      <enabled>N</enabled>
+      <name>COPY_NR</name>
+    </field>
+  </jobentry-log-table>
+  <channel-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>LOGGING_OBJECT_TYPE</id>
+      <enabled>Y</enabled>
+      <name>LOGGING_OBJECT_TYPE</name>
+    </field>
+    <field>
+      <id>OBJECT_NAME</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_NAME</name>
+    </field>
+    <field>
+      <id>OBJECT_COPY</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_COPY</name>
+    </field>
+    <field>
+      <id>REPOSITORY_DIRECTORY</id>
+      <enabled>Y</enabled>
+      <name>REPOSITORY_DIRECTORY</name>
+    </field>
+    <field>
+      <id>FILENAME</id>
+      <enabled>Y</enabled>
+      <name>FILENAME</name>
+    </field>
+    <field>
+      <id>OBJECT_ID</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_ID</name>
+    </field>
+    <field>
+      <id>OBJECT_REVISION</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_REVISION</name>
+    </field>
+    <field>
+      <id>PARENT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>PARENT_CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>ROOT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>ROOT_CHANNEL_ID</name>
+    </field>
+  </channel-log-table>
+  <pass_batchid>N</pass_batchid>
+  <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>156</xloc>
+      <yloc>125</yloc>
+    </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>138</xloc>
+      <yloc>457</yloc>
+    </entry>
+    <entry>
+      <name>Abort job</name>
+      <description/>
+      <type>ABORT</type>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>719</xloc>
+      <yloc>291</yloc>
+    </entry>
+    <entry>
+      <name>descarga_inputs</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>descarga_inputs</transname>
+      <directory>${Internal.Entry.Current.Directory}</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>370</xloc>
+      <yloc>125</yloc>
+    </entry>
+    <entry>
+      <name>Agrega peso PAX por canal</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL_PAX_CANAL;
+
+insert into ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL_PAX_CANAL
+select
+*,
+cast(pax_venta_directa*1.0/(
+	select sum(c.pax_venta_directa)
+	from (	
+		select 	
+		d.*,
+		b.pax_directo as pax_venta_directa,
+		b.pax_indirecto as pax_venta_indirecta		
+		from ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL d
+		left join ODS_TEMPORALES.dbo.ODS_RPA_T_PAX_VENTA_TRAMIFICADO b on
+				d.departure_date=b.departure_date
+			and d.flight_number=b.flight_number
+			and d.boardpoint=b.boardpoint
+			and d.offpoint=b.offpoint	
+	) c
+	where 
+			a.routing_eerr=c.routing_eerr
+		and a.month=c.month
+		and a.year=c.year	
+		and c.flight_type in ('Regular','Charter')
+) as float) as peso_pax_venta_directa,
+cast(pax_venta_indirecta*1.0/(
+	select sum(c.pax_venta_indirecta)
+	from (	
+		select 	
+		d.*,
+		b.pax_directo as pax_venta_directa,
+		b.pax_indirecto as pax_venta_indirecta		
+		from ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL d
+		left join ODS_TEMPORALES.dbo.ODS_RPA_T_PAX_VENTA_TRAMIFICADO b on
+				d.departure_date=b.departure_date
+			and d.flight_number=b.flight_number
+			and d.boardpoint=b.boardpoint
+			and d.offpoint=b.offpoint	
+	) c
+	where 
+			a.routing_eerr=c.routing_eerr
+		and a.month=c.month
+		and a.year=c.year	
+		and c.flight_type in ('Regular','Charter')
+) as float) as peso_pax_venta_indirecta
+from
+(
+	select 	
+	a.*,
+	b.pax_directo as pax_venta_directa,
+	b.pax_indirecto as pax_venta_indirecta		
+	from ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL a
+	left join ODS_TEMPORALES.dbo.ODS_RPA_T_PAX_VENTA_TRAMIFICADO b on
+			a.departure_date=b.departure_date
+		and a.flight_number=b.flight_number
+		and a.boardpoint=b.boardpoint
+		and a.offpoint=b.offpoint
+) a
+;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1068</xloc>
+      <yloc>457</yloc>
+    </entry>
+    <entry>
+      <name>RPA distribuido por peso</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table ODS_TEMPORALES.dbo.ODS_RPA_O_RPA_FINAL;
+
+
+insert into ODS_TEMPORALES.dbo.ODS_RPA_O_RPA_FINAL
+SELECT a.[flight_number]
+      ,a.[year]
+      ,a.[month]
+      ,a.[week]
+      ,a.[departure_date]
+      ,a.[boardpoint]
+      ,a.[offpoint]
+      ,a.[leg_number]
+      ,a.[capacity]
+      ,a.[travel_distance]
+      ,a.[flight_type]
+      ,a.[ac]
+	  ,a.[aircraft_type]
+      ,a.[agrupacion]
+      ,a.[routing]
+      ,a.[ruta]
+      ,a.[subruta]
+      ,a.[routing_eerr]
+      ,a.[pax_light]
+      ,a.[pax_plus]
+      ,a.[pax_no_pago]
+      ,a.[pax_pago]
+      ,a.[pax_total]	  
+      ,a.[ask]
+      ,a.[rpk_pago]
+      ,a.[rpk_no_pago]
+      ,a.[rpk_total]
+      ,a.[fo]
+      ,a.[std]
+      ,a.[sta]
+      ,a.[scheduled_block_time]
+      ,a.[atd]
+      ,a.[ata]
+      ,a.[real_block_time]
+      ,a.[pasadas]
+      ,a.[burn_fuel]
+      ,a.[apu_burn_fuel]
+      ,a.[total_burn_fuel]
+      ,a.[block_time_dec]
+      ,a.[ground_time_dec]
+      ,a.[peso_pax]
+      ,a.[peso_pasadas]
+      ,a.[peso_block_time]
+      ,a.[peso_ground_time]	
+	  ,a.[pax_venta_directa]
+      ,a.[pax_venta_indirecta]  
+      ,a.[peso_pax_venta_directa]
+      ,a.[peso_pax_venta_indirecta]     
+      ,a.[tipo_distribucion_fuel]
+      ,isnull([Aeropuerto],0)*[peso_pasadas] as aeropuerto
+      ,(costo_arriendo_aviones*-[peso_block_time_tipo_material])/1000000 as arriendo_aviones
+      ,asiento_volado/1000000 as asiento
+      ,isnull([Buy on Board],0)*[peso_pasadas] as buy_on_board
+      ,isnull([Caduco Tasas],0)*[peso_pasadas] as caduco_tasas
+      ,isnull([Caduco Ticket],0)*[peso_pasadas] as caduco_ticket
+	  ,isnull(cambio_volado,0)/1000000 as cambio
+      ,isnull([Comisiones de Venta],0)*[peso_pax_venta_indirecta] as comisiones_de_venta
+      ,isnull([Compensaciones],0)*[peso_pax] as compensaciones
+      ,isnull([Costo Carga],0)*[peso_pasadas] as costo_carga
+      ,isnull([Costos de red de ventas],0)*[peso_pax_venta_directa] as costos_red_de_ventas
+      ,isnull([Costos Fijos comerciales y overhead Adm&amp; Finanzas],0)*[peso_pasadas] as costos_fijos_comerciales
+      ,isnull([Depreciación y Amortización],0)*[peso_pasadas] as depreciacion_amortizacion
+      ,[emision]/1000000 as emision
+      ,equipaje_volado/1000000 as equipaje
+      ,exceso_volado/1000000 as exceso
+      ,isnull([Fuel],0)*[peso_fuel] as fuel
+      ,isnull(b.ingreso_carga*travel_distance/(select sum(travel_distance) 
+									 from [ODS_TEMPORALES].[dbo].[ODS_RPA_T_CONSOLIDADO] c
+									 where  a.flight_number=c.flight_number
+										and a.departure_date=c.departure_date),0)/1000000 as ingreso_carga
+      ,isnull([Mantenimiento],0)*[peso_block_time] as mantenimiento
+      ,isnull([Mantenimiento Mayor],0)*[peso_block_time] as mantenimiento_mayor
+      ,isnull([Mantenimiento Menor],0)*[peso_block_time] as mantenimiento_menor      
+      ,isnull([Marketing],0)*[peso_pax] as marketing
+      ,isnull([Medios de Pago],0)*[peso_pax_venta_directa] as medios_de_pago
+      ,isnull([Non Core],0)*[peso_pasadas] as non_core
+      ,isnull([Operaciones de Vuelo],0)*[peso_block_time] as operaciones_de_vuelo
+      ,isnull([Operaciones Terrestres],0)*[peso_pasadas] as operaciones_terrestres
+      ,isnull([Otros Sistemas de Distribución],0)*[peso_pax_venta_indirecta] as otros_sistemas_de_dist
+      ,ingreso/1000000 as ingreso_pax
+      ,isnull([Planet IFE],0)*[peso_pasadas] as planet_ife
+      ,prioridad_volado/1000000 as prioridad
+      ,[reemision]/1000000 as reemision
+      ,isnull([Seguros],0)*[peso_ground_time] as seguros
+      ,isnull([Servicio a Bordo],0)*[peso_pasadas] as servicio_a_bordo
+      ,isnull([Sita],0)*[peso_pax] as sita
+      ,isnull([Soporte/Overhead Operaciones],0)*[peso_pasadas] as soporte_overhead_operaciones
+      ,isnull([Tasas Aeroportuarias],0)*[peso_pasadas] as tasas_aeroportuarias      
+      ,isnull([Variable de Pilotos],0)*[peso_block_time] as variable_pilotos     
+	  ,ingreso/pax_pago as tm
+	  ,case when a.[pasadas]&gt;1 then 'Si' else 'No' end as contingencia
+	  ,null as despegue_origen
+	  ,'' as rt	  
+  FROM [ODS_TEMPORALES].[dbo].[ODS_RPA_T_CONSOLIDADO] a
+  left join (
+	select flight_number,departure_date,sum(isnull(income,0)) as ingreso_carga from
+	ODS_TEMPORALES.dbo.ODS_RPA_I_VOLADO_CARGA
+	group by flight_number,departure_date) b on
+		a.flight_number=b.flight_number
+	and a.departure_date=b.departure_date
+	</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>602</xloc>
+      <yloc>457</yloc>
+    </entry>
+    <entry>
+      <name>Pax Venta tramificado</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table ODS_TEMPORALES.dbo.ODS_RPA_T_PAX_VENTA_TRAMIFICADO;
+
+insert into ODS_TEMPORALES.dbo.ODS_RPA_T_PAX_VENTA_TRAMIFICADO
+SELECT 
+	a.vuelo as flight_number,
+	a.fecha_vuelo as departure_date,
+	b.boardpoint,
+	b.offpoint,
+	sum(isnull(a.pax_directo,0)) as pax_directo,
+	sum(isnull(a.pax_indirecto,0)) as pax_indirecto
+FROM [ODS_TEMPORALES].[dbo].[ODS_RPA_I_VENTA_AIR_SEGMENTO] a
+left join ODS_TEMPORALES.[dbo].[ODS_RPA_I_LEG_SEGMENT_DISTANCE] b on
+		a.vuelo=b.flight_number
+	and a.fecha_vuelo=b.departure_date
+	and a.origen=b.origen
+	and a.destino=b.destino	
+where b.travel_distance is not null
+group by
+	a.vuelo,
+	a.fecha_vuelo,
+	b.boardpoint,
+	b.offpoint
+order by fecha_vuelo,vuelo,boardpoint,offpoint;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>602</xloc>
+      <yloc>125</yloc>
+    </entry>
+    <entry>
+      <name>Emision - Reemision venta tramificada</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table ODS_TEMPORALES.dbo.ODS_RPA_T_EMISION_VENTA_TRAMIFICADO;
+
+insert into ODS_TEMPORALES.dbo.ODS_RPA_T_EMISION_VENTA_TRAMIFICADO
+select
+	flight_number,
+	departure_date,
+	boardpoint,
+	offpoint,
+	sum(emision) as emision,
+	sum(reemision) as reemision
+from(
+select 
+vuelo as flight_number,
+fecha_vuelo as departure_date,
+b.boardpoint,
+b.offpoint,
+sum(isnull(emision,0))*b.travel_distance/(select sum(travel_distance) 
+											from ods_temporales.[dbo].[ODS_RPA_I_LEG_SEGMENT_DISTANCE] c 
+											where     a.origen=c.origen 
+												and a.destino=c.destino 
+												and a.vuelo=c.flight_number 
+												and a.fecha_vuelo=c.departure_date) as emision,
+sum(isnull(reemision,0))*b.travel_distance/(select sum(travel_distance) 
+											from ods_temporales.[dbo].[ODS_RPA_I_LEG_SEGMENT_DISTANCE] c 
+											where     a.origen=c.origen 
+												and a.destino=c.destino 
+												and a.vuelo=c.flight_number 
+												and a.fecha_vuelo=c.departure_date) as reemision
+from
+ods_temporales.[dbo].[ODS_RPA_I_VENTA_SSR_SEGMENTO] a 
+left join ODS_TEMPORALES.[dbo].[ODS_RPA_I_LEG_SEGMENT_DISTANCE] b on
+		a.vuelo=b.flight_number
+	and a.fecha_vuelo=b.departure_date
+	and a.origen=b.origen
+	and a.destino=b.destino	
+where b.travel_distance is not null
+group by
+vuelo,
+fecha_vuelo,
+b.boardpoint,
+b.offpoint,
+b.travel_distance,
+a.origen,
+a.destino
+) d
+group by 
+	flight_number,
+	departure_date,
+	boardpoint,
+	offpoint</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>834</xloc>
+      <yloc>125</yloc>
+    </entry>
+    <entry>
+      <name>Volado SSR tramificado</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table ODS_TEMPORALES.dbo.ODS_RPA_T_VOLADO_SSR_TRAMIFICADO;
+
+insert into ODS_TEMPORALES.dbo.ODS_RPA_T_VOLADO_SSR_TRAMIFICADO
+select
+	 a.flight_number
+    ,a.departure_date
+    ,a.boardpoint as boardpoint
+	,a.offpoint as offpoint	
+	,sum(a.asiento)+sum(isnull(c.asiento,0)) as asiento
+	,sum(a.equipaje)+sum(isnull(c.equipaje,0)) as equipaje
+	,sum(a.exceso)+sum(isnull(c.exceso,0)) as exceso
+	,sum(a.prioridad)+sum(isnull(c.prioridad,0)) as prioridad	
+	,sum(a.cambio)+sum(isnull(c.cambio,0)) as cambio
+from(
+SELECT 
+	   a.numero_vuelo as flight_number
+      ,a.fecha_vuelo as departure_date
+      ,b.boardpoint
+	  ,b.offpoint
+	  ,a.routing
+      ,sum(a.asiento)*b.travel_distance/ (select sum(travel_distance) 
+										  from ODS_TEMPORALES.dbo.ODS_RPA_I_LEG_SEGMENT_DISTANCE c
+										  where 
+												a.origen=c.origen
+											and a.destino=c.destino
+											and a.fecha_vuelo=c.departure_date
+											and a.numero_vuelo=c.flight_number
+										  ) as asiento
+      ,sum(a.equipaje)*b.travel_distance/ (select sum(travel_distance) 
+										  from ODS_TEMPORALES.dbo.ODS_RPA_I_LEG_SEGMENT_DISTANCE c
+										  where 
+												a.origen=c.origen
+											and a.destino=c.destino
+											and a.fecha_vuelo=c.departure_date
+											and a.numero_vuelo=c.flight_number
+										  ) as equipaje
+      ,sum(a.exceso)*b.travel_distance/ (select sum(travel_distance) 
+										  from ODS_TEMPORALES.dbo.ODS_RPA_I_LEG_SEGMENT_DISTANCE c
+										  where 
+												a.origen=c.origen
+											and a.destino=c.destino
+											and a.fecha_vuelo=c.departure_date
+											and a.numero_vuelo=c.flight_number
+										  ) as exceso
+      ,sum(a.prioridad)*b.travel_distance/ (select sum(travel_distance) 
+										  from ODS_TEMPORALES.dbo.ODS_RPA_I_LEG_SEGMENT_DISTANCE c
+										  where 
+												a.origen=c.origen
+											and a.destino=c.destino
+											and a.fecha_vuelo=c.departure_date
+											and a.numero_vuelo=c.flight_number
+										  ) as prioridad
+	  ,sum(a.cambio)*b.travel_distance/ (select sum(travel_distance) 
+										  from ODS_TEMPORALES.dbo.ODS_RPA_I_LEG_SEGMENT_DISTANCE c
+										  where 
+												a.origen=c.origen
+											and a.destino=c.destino
+											and a.fecha_vuelo=c.departure_date
+											and a.numero_vuelo=c.flight_number
+										  ) as cambio
+  FROM ODS_TEMPORALES.dbo.ODS_RPA_I_VOLADO_SSR a
+  left join ODS_TEMPORALES.dbo.ODS_RPA_I_LEG_SEGMENT_DISTANCE b on
+		a.numero_vuelo=b.flight_number
+	and a.fecha_vuelo=b.departure_date
+	and a.origen=b.origen
+	and a.destino=b.destino
+  where 
+	b.travel_distance is not null
+  group by
+	a.numero_vuelo,
+	a.fecha_vuelo,
+	b.boardpoint,
+	b.offpoint,
+	b.travel_distance,
+	a.origen,
+	a.destino,
+	a.routing
+) a
+---PARCHE VUELO 4 DOW 6/7 
+left join (
+		-- SUMAR ESTOS INGRESOS A LA TRAMIFICACION DEL VOLADO ANCILLARY PARA EL VUELO 4 DOW 6/7
+		SELECT 
+			   a.numero_vuelo as flight_number
+			  ,a.fecha_vuelo as departure_date
+			  ,'PUQ' as boardpoint
+			  ,'PMC' as offpoint      
+			  ,a.asiento *0.58 as asiento
+			  ,a.equipaje *0.58 as equipaje
+			  ,a.exceso *0.58 as exceso
+			  ,a.prioridad	*0.58 as prioridad 
+			  ,a.cambio *0.58 as cambio
+		  FROM ODS_TEMPORALES.dbo.ODS_RPA_I_VOLADO_SSR a
+		  left join ODS_TEMPORALES.dbo.ODS_RPA_I_LEG_SEGMENT_DISTANCE b on
+				a.numero_vuelo=b.flight_number
+			and a.fecha_vuelo=b.departure_date
+			and a.origen=b.origen
+			and a.destino=b.destino
+		  where 
+			numero_vuelo=4
+			and DATEPART(weekday,fecha_vuelo) in (6)
+			and a.origen='PUQ' and a.destino='SCL'  
+		  union 
+		  SELECT 
+			   a.numero_vuelo as flight_number
+			  ,dateadd(day,1,a.fecha_vuelo) as departure_date
+			  ,'PMC' as boardpoint
+			  ,'SCL' as offpoint     
+			  ,a.asiento *0.42 as asiento
+			  ,a.equipaje *0.42 as equipaje
+			  ,a.exceso *0.42 as exceso
+			  ,a.prioridad	*0.42 as prioridad 	 
+			  ,a.cambio	*0.42 as cambio 
+		  FROM ODS_TEMPORALES.dbo.ODS_RPA_I_VOLADO_SSR a
+		  left join ODS_TEMPORALES.dbo.ODS_RPA_I_LEG_SEGMENT_DISTANCE b on
+				a.numero_vuelo=b.flight_number
+			and a.fecha_vuelo=b.departure_date
+			and a.origen=b.origen
+			and a.destino=b.destino
+		  where 
+			numero_vuelo=4
+			and DATEPART(weekday,fecha_vuelo) in (6)
+			and a.origen='PUQ' and a.destino='SCL'		  
+			) c on
+		a.flight_number=c.flight_number
+	and a.departure_date=c.departure_date
+	and a.boardpoint=c.boardpoint
+	and a.offpoint=c.offpoint
+group by
+	 a.flight_number
+    ,a.departure_date
+    ,a.boardpoint
+	,a.offpoint	</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1068</xloc>
+      <yloc>125</yloc>
+    </entry>
+    <entry>
+      <name>Consolida fuentes</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table ODS_TEMPORALES.dbo.ODS_RPA_T_CONSOLIDADO;
+
+insert into ODS_TEMPORALES.dbo.ODS_RPA_T_CONSOLIDADO
+select 
+a.*,
+sum(isnull(b.asiento,0)) as asiento_volado,
+sum(isnull(b.equipaje,0)) as equipaje_volado,
+sum(isnull(b.exceso,0)) as exceso_volado,
+sum(isnull(b.prioridad,0)) as prioridad_volado,
+sum(isnull(c.ingreso,0)) as ingreso,
+sum(isnull(d.emision,0)) as emision,
+sum(isnull(d.reemision,0)) as reemision,
+sum(isnull(f.total,0)) as costo_arriendo_aviones,
+sum(isnull(b.cambio,0)) as cambio_volado
+from ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL_PAX_CANAL a
+left join ODS_TEMPORALES.dbo.ODS_RPA_T_VOLADO_SSR_TRAMIFICADO b	on 
+		a.departure_date=b.departure_date
+	and a.flight_number=b.flight_number
+	and a.boardpoint=b.boardpoint
+	and a.offpoint=b.offpoint
+left join ODS_TEMPORALES.dbo.ODS_RPA_I_VOLADO_TKT_TRAMIFICADO c on
+		a.departure_date=c.departure_date
+	and a.flight_number=c.flight_number
+	and a.boardpoint=c.boardpoint
+	and a.offpoint=c.offpoint
+left join ODS_TEMPORALES.dbo.ODS_RPA_T_EMISION_VENTA_TRAMIFICADO d on
+		a.departure_date=d.departure_date
+	and a.flight_number=d.flight_number
+	and a.boardpoint=d.boardpoint
+	and a.offpoint=d.offpoint
+left join ODS_TEMPORALES.dbo.ODS_RPA_T_PAX_VENTA_TRAMIFICADO e on
+		a.departure_date=e.departure_date
+	and a.flight_number=e.flight_number
+	and a.boardpoint=e.boardpoint
+	and a.offpoint=e.offpoint
+left join ODS_TEMPORALES.dbo.ODS_RPA_I_ARRIENDO_AVIONES f on
+		a.year=f.año
+	and a.month=f.mes
+	and a.aircraft_type=f.material
+group by
+	   a.[flight_number]
+      ,a.[year]
+      ,a.[month]
+      ,a.[week]
+      ,a.[departure_date]
+      ,a.[boardpoint]
+      ,a.[offpoint]
+      ,a.[leg_number]
+      ,a.[capacity]
+      ,a.[travel_distance]
+      ,a.[flight_type]
+      ,a.ac
+	  ,a.aircraft_type
+      ,a.[agrupacion]
+      ,a.[routing]
+      ,a.[ruta]
+      ,a.[subruta]
+      ,a.[routing_eerr]
+      ,a.[pax_light]
+      ,a.[pax_plus]
+      ,a.[pax_no_pago]
+      ,a.[pax_pago]
+      ,a.[pax_total]
+      ,a.[ask]
+      ,a.[rpk_pago]
+      ,a.[rpk_no_pago]
+      ,a.[rpk_total]
+      ,a.[fo]
+      ,a.[std]
+      ,a.[sta]
+      ,a.[scheduled_block_time]
+      ,a.[atd]
+      ,a.[ata]
+      ,a.[real_block_time]
+      ,a.[pasadas]
+      ,a.[burn_fuel]
+      ,a.[apu_burn_fuel]
+      ,a.[total_burn_fuel]
+      ,a.[block_time_dec]
+      ,a.[ground_time_dec]
+      ,a.[peso_pax]
+      ,a.[peso_pasadas]
+      ,a.[peso_block_time]
+      ,a.[peso_ground_time]
+      ,a.[tipo_distribucion_fuel]
+      ,a.[peso_fuel]
+      ,a.[Aeropuerto]
+      ,a.[Arriendo Aviones]
+      ,a.[Asiento]
+      ,a.[Buy on Board]
+      ,a.[Caduco Tasas]
+      ,a.[Caduco Ticket]
+      ,a.[Comisiones de Venta]
+      ,a.[Compensaciones]
+      ,a.[Costo Carga]
+      ,a.[Costos de red de ventas]
+      ,a.[Costos Fijos comerciales y overhead Adm&amp; Finanzas]
+      ,a.[Depreciación y Amortización]
+      ,a.[Emisión]
+      ,a.[Equipaje]
+      ,a.[Exceso de Equipaje]
+      ,a.[Fuel]
+      ,a.[Ingreso Carga]
+      ,a.[Mantenimiento]
+      ,a.[Mantenimiento Mayor]
+      ,a.[Mantenimiento Menor]
+      ,a.[Margen 1]
+      ,a.[Margen 3]
+      ,a.[Margen 4]
+      ,a.[Marketing]
+      ,a.[Medios de Pago]
+      ,a.[Non Core]
+      ,a.[Operaciones de Vuelo]
+      ,a.[Operaciones Terrestres]
+      ,a.[Otros Ingresos]
+      ,a.[Otros Sistemas de Distribución]
+      ,a.[Pax]
+      ,a.[Planet IFE]
+      ,a.[Priority]
+      ,a.[Reemisión]
+      ,a.[Seguros]
+      ,a.[Servicio a Bordo]
+      ,a.[Sita]
+      ,a.[Soporte/Overhead Operaciones]
+      ,a.[Tasas Aeroportuarias]
+      ,a.[Utilidad antes de IMPTO]
+      ,a.[Variable de Pilotos]
+      ,a.[pax_venta_directa]
+      ,a.[pax_venta_indirecta]
+      ,a.[peso_pax_venta_directa]
+      ,a.[peso_pax_venta_indirecta]
+	  ,a.[peso_block_time_tipo_material]</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>834</xloc>
+      <yloc>457</yloc>
+    </entry>
+    <entry>
+      <name>Limpia y carga ODS + Mapeo RT</name>
+      <description/>
+      <type>SQL</type>
+      <sql>delete from ODS_RPA.dbo.O_RPA where departure_date between '${fecha_inicio}' and '${fecha_fin}';
+
+insert into ODS_RPA.dbo.O_RPA
+select 
+departure_date
+,year
+,month
+,week
+,flight_number
+,boardpoint
+,offpoint
+,leg_number
+,capacity
+,travel_distance
+,flight_type
+,ac
+,aircraft_type
+,agrupacion
+,routing
+,ruta
+,subruta
+,routing_eerr
+,pax_light
+,pax_plus
+,pax_no_pago
+,pax_pago
+,pax_total
+,ask
+,rpk_pago
+,rpk_no_pago
+,rpk_total
+,tm
+,fo
+,std
+,sta
+,scheduled_block_time
+,atd
+,ata
+,real_block_time
+,pasadas
+,burn_fuel
+,apu_burn_fuel
+,total_burn_fuel
+,block_time_dec
+,ground_time_dec
+,tipo_distribucion_fuel
+,aeropuerto
+,arriendo_aviones
+,asiento
+,buy_on_board
+,caduco_tasas
+,caduco_ticket
+,cambio
+,comisiones_de_venta
+,compensaciones
+,(	arriendo_aviones+
+	seguros) as arriendo_aviones_y_seguros
+,costo_carga
+,costos_red_de_ventas
+,
+(	costos_red_de_ventas+
+	marketing) as costos_fijos_comerciales
+,
+(	operaciones_de_vuelo+
+	operaciones_terrestres+
+	mantenimiento+
+	costo_carga) as costos_fijos_vuelo
+,(	fuel+
+	tasas_aeroportuarias+
+	mantenimiento_mayor+
+	mantenimiento_menor+
+	aeropuerto+
+	variable_pilotos) as costos_variables_de_vuelo
+,(	comisiones_de_venta+
+	sita+
+	otros_sistemas_de_dist+
+	medios_de_pago+
+	servicio_a_bordo+
+	compensaciones) as costos_venta_y_trafico
+,depreciacion_amortizacion
+,emision
+,equipaje
+,exceso
+,fuel
+,
+(	ingreso_pax+
+	emision+
+	reemision+
+	caduco_ticket+
+	caduco_tasas+
+	ingreso_carga+
+	exceso+
+	equipaje+
+	asiento+
+	prioridad+
+	buy_on_board+
+	planet_ife+
+	non_core) as ingreso_bruto
+,ingreso_carga
+,mantenimiento
+,mantenimiento_mayor
+,mantenimiento_menor
+,
+(	ingreso_pax+
+	emision+
+	reemision+
+	caduco_ticket+
+	caduco_tasas+
+	ingreso_carga+
+	exceso+
+	equipaje+
+	asiento+
+	prioridad+
+	buy_on_board+
+	planet_ife+
+	non_core)
+	+
+(	fuel+
+	tasas_aeroportuarias+
+	mantenimiento_mayor+
+	mantenimiento_menor+
+	aeropuerto+
+	variable_pilotos)
+	+
+(	comisiones_de_venta+
+	sita+
+	otros_sistemas_de_dist+
+	medios_de_pago+
+	servicio_a_bordo+
+	compensaciones) as margen_1,
+(	ingreso_pax+
+	emision+
+	reemision+
+	caduco_ticket+
+	caduco_tasas+
+	ingreso_carga+
+	exceso+
+	equipaje+
+	asiento+
+	prioridad+
+	buy_on_board+
+	planet_ife+
+	non_core)
+	+
+(	fuel+
+	tasas_aeroportuarias+
+	mantenimiento_mayor+
+	mantenimiento_menor+
+	aeropuerto+
+	variable_pilotos)
+	+
+(	comisiones_de_venta+
+	sita+
+	otros_sistemas_de_dist+
+	medios_de_pago+
+	servicio_a_bordo+
+	compensaciones)
+	+
+(	arriendo_aviones+
+	seguros)
+	-
+(	operaciones_de_vuelo+
+	operaciones_terrestres+
+	mantenimiento+
+	costo_carga)
+	+
+(	costos_red_de_ventas+
+	marketing) as margen_3,
+(	ingreso_pax+
+	emision+
+	reemision+
+	caduco_ticket+
+	caduco_tasas+
+	ingreso_carga+
+	exceso+
+	equipaje+
+	asiento+
+	prioridad+
+	buy_on_board+
+	planet_ife+
+	non_core)
+	+
+(	fuel+
+	tasas_aeroportuarias+
+	mantenimiento_mayor+
+	mantenimiento_menor+
+	aeropuerto+
+	variable_pilotos)
+	+
+(	comisiones_de_venta+
+	sita+
+	otros_sistemas_de_dist+
+	medios_de_pago+
+	servicio_a_bordo+
+	compensaciones)
+	+
+(	arriendo_aviones+
+	seguros)
+	+
+(	operaciones_de_vuelo+
+	operaciones_terrestres+
+	mantenimiento+
+	costo_carga)
+	+
+(	costos_red_de_ventas+
+	marketing)
+	+
+	soporte_overhead_operaciones
+	+
+	depreciacion_amortizacion
+	+costos_fijos_comerciales
+	as margen_4
+,marketing
+,medios_de_pago
+,non_core
+,operaciones_de_vuelo
+,operaciones_terrestres
+,otros_sistemas_de_dist
+,ingreso_pax
+,planet_ife
+,prioridad
+,reemision
+,seguros
+,servicio_a_bordo
+,sita
+,costos_fijos_comerciales as soporte_overhead_central
+,soporte_overhead_operaciones
+,tasas_aeroportuarias
+,variable_pilotos
+,contingencia
+,despegue_origen
+,rt
+from
+ODS_TEMPORALES.dbo.ODS_RPA_O_RPA_FINAL
+where
+departure_date between '${fecha_inicio}' and '${fecha_fin}';
+
+
+
+
+update a
+set a.rt=b.RT
+FROM ODS_RPA.dbo.O_RPA a
+left join ODS_TEMPORALES.dbo.ODS_RPA_I_MAPEO_RT b on
+	a.flight_number=b.N1
+	or a.flight_number=b.n2
+where 
+departure_date between '${fecha_inicio}' and '${fecha_fin}';
+
+
+
+
+update a
+set despegue_origen=(select min(std) from ods_rpa.dbo.O_RPA c where a.departure_date=c.departure_date and a.flight_number=b.n2 and a.rt=c.rt)
+from ods_rpa.dbo.o_rpa a
+left join ODS_TEMPORALES.dbo.ods_rpa_i_mapeo_rt b on
+		a.rt=b.rt	
+where 
+departure_date between '${fecha_inicio}' and '${fecha_fin}';
+
+
+
+
+</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_RPA</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>369</xloc>
+      <yloc>457</yloc>
+    </entry>
+    <entry>
+      <name>Estadisticas y totales AM</name>
+      <description/>
+      <type>SQL</type>
+      <sql>truncate table ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL;
+
+insert into ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL
+select *
+from(
+SELECT flight_number
+      ,year
+      ,month
+      ,week
+      ,departure_date
+      ,boardpoint
+      ,offpoint
+      ,leg_number
+      ,capacity
+      ,sum(travel_distance) as travel_distance
+      ,flight_type
+      ,ac =STUFF(( -- CONCATENA MATRICULAS EN CASO DE CONTINGENCIA CON CAMBIO DE MATERIAL
+			  SELECT '-' + b.ac
+			  FROM ODS_TEMPORALES.dbo.ODS_RPA_I_ESTADISTICAS b
+			  WHERE 
+						a.flight_number=b.flight_number
+					and a.departure_date=b.departure_date
+					and a.boardpoint=b.boardpoint
+					and a.offpoint=b.offpoint
+			  FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 1, '')
+	  ,a.aircraft_type
+      ,a.agrupacion
+      ,a.routing
+      ,a.ruta
+      ,a.subruta
+      ,a.routing_eerr
+      ,sum(pax_light)/sum(pasadas) as pax_light		 -- Se divide por pasadas por en caso de tramos contingencia para evitar duplicar el número
+      ,sum(pax_plus)/sum(pasadas) as pax_plus  		 -- Se divide por pasadas por en caso de tramos contingencia para evitar duplicar el número
+      ,sum(pax_no_pago)/sum(pasadas) as pax_no_pago	 -- Se divide por pasadas por en caso de tramos contingencia para evitar duplicar el número
+      ,sum(pax_pago)/sum(pasadas) as pax_pago		 -- Se divide por pasadas por en caso de tramos contingencia para evitar duplicar el número
+      ,sum(pax_total)/sum(pasadas) as pax_total		 -- Se divide por pasadas por en caso de tramos contingencia para evitar duplicar el número
+      ,sum(ask) as ask					
+      ,sum(rpk_pago) as rpk_pago		
+      ,sum(rpk_no_pago) as rpk_no_pago	
+      ,sum(rpk_total) as rpk_total		 
+      ,sum(rpk_pago)/sum(ask) as fo
+      ,dateadd(hour,isnull(c.diferencia_horaria,-3),std) as std  -- Calcula fecha/hora local
+      ,dateadd(hour,isnull(c.diferencia_horaria,-3),sta) as sta  -- Calcula fecha/hora local
+	  ,CONVERT(varchar(12),DATEADD(minute, DATEDIFF(minute, dateadd(hour,isnull(c.diferencia_horaria,-3),std),dateadd(hour,isnull(c.diferencia_horaria,-3),sta)), 0), 114) as scheduled_block_time
+      ,dateadd(hour,isnull(c.diferencia_horaria,-3),atd) as atd  -- Calcula fecha/hora local
+      ,dateadd(hour,isnull(c.diferencia_horaria,-3),ata) as ata  -- Calcula fecha/hora local
+	  ,CONVERT(varchar(12),DATEADD(minute, DATEDIFF(minute, dateadd(hour,isnull(c.diferencia_horaria,-3),atd),dateadd(hour,isnull(c.diferencia_horaria,-3),ata)), 0), 114) as real_block_time
+      ,sum(pasadas) as pasadas
+      ,sum(burn_fuel) as burn_fuel
+      ,sum(apu_burn_fuel) as apu_burn_fuel
+      ,sum(total_burn_fuel) as total_burn_fuel
+      ,sum(block_time_dec) as block_time_dec
+      ,sum(ground_time_dec) as ground_time_dec
+      ,sum(peso_pax) as peso_pax
+      ,sum(peso_pasadas) as peso_pasadas
+      ,sum(peso_block_time) as peso_block_time
+      ,sum(peso_ground_time) as peso_ground_time
+      ,sum(peso_block_time_tipo_material) as peso_block_time_tipo_material
+      ,tipo_distribucion_fuel
+      ,sum(peso_fuel) as peso_fuel
+	  ,b.tipo_cuenta
+	  ,b.total
+  FROM ODS_TEMPORALES.dbo.ODS_RPA_I_ESTADISTICAS a
+  left join ODS_TEMPORALES.dbo.ODS_RPA_I_EERR_ROUTING b	on
+			a.routing_eerr=b.routing_eerr
+		and a.year=b.año
+		and a.month=b.mes
+   left join ODS_AUXILIAR.dbo.ZONA_HORARIA c on
+			a.boardpoint=c.iata
+		and a.departure_date between inicio_vigencia and fin_vigencia
+  group by
+	   flight_number
+      ,year
+      ,month
+      ,week
+      ,departure_date
+      ,boardpoint
+      ,offpoint
+      ,leg_number
+      ,capacity
+      ,flight_type
+	  ,a.aircraft_type  
+      ,a.agrupacion
+      ,routing
+      ,a.ruta
+      ,a.subruta
+      ,a.routing_eerr
+	  ,std
+      ,sta
+      ,atd
+      ,ata
+	  ,tipo_distribucion_fuel
+	  ,b.tipo_cuenta
+	  ,b.total
+	  ,c.diferencia_horaria
+) a
+pivot (sum(total) for tipo_cuenta in ([Aeropuerto],	[Arriendo Aviones],	[Asiento],	[Buy on Board],	[Caduco Tasas],	[Caduco Ticket],	[Comisiones de Venta],	[Compensaciones],	[Costo Carga],	[Costos de red de ventas],	[Costos Fijos comerciales y overhead Adm&amp; Finanzas],	[Depreciación y Amortización],	[Emisión],	[Equipaje],	[Exceso de Equipaje],	[Fuel],	[Ingreso Carga], [Mantenimiento],	[Mantenimiento Mayor],	[Mantenimiento Menor],	[Margen 1],	[Margen 3],	[Margen 4],	[Marketing],	[Medios de Pago],	[Non Core],	[Operaciones de Vuelo],	[Operaciones Terrestres],	[Otros Ingresos],	[Otros Sistemas de Distribución],	[Pax],	[Planet IFE],	[Priority],	[Reemisión],	[Seguros],	[Servicio a Bordo],	[Sita],	[Soporte/Overhead Operaciones],	[Tasas Aeroportuarias],	[Utilidad antes de IMPTO],	[Variable de Pilotos])) as pvt;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1068</xloc>
+      <yloc>291</yloc>
+    </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>START</from>
+      <to>descarga_inputs</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>descarga_inputs</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>descarga_inputs</from>
+      <to>Pax Venta tramificado</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Pax Venta tramificado</from>
+      <to>Emision - Reemision venta tramificada</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Pax Venta tramificado</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Emision - Reemision venta tramificada</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Agrega peso PAX por canal</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>RPA distribuido por peso</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Emision - Reemision venta tramificada</from>
+      <to>Volado SSR tramificado</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Volado SSR tramificado</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Agrega peso PAX por canal</from>
+      <to>Consolida fuentes</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Consolida fuentes</from>
+      <to>RPA distribuido por peso</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Consolida fuentes</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>RPA distribuido por peso</from>
+      <to>Limpia y carga ODS + Mapeo RT</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Limpia y carga ODS + Mapeo RT</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Limpia y carga ODS + Mapeo RT</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Volado SSR tramificado</from>
+      <to>Estadisticas y totales AM</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Estadisticas y totales AM</from>
+      <to>Agrega peso PAX por canal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Estadisticas y totales AM</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+    <notepad>
+      <note>Tiene parche de tramificacion para
+vuelo 4 que cae un tramo en dia distinto!!</note>
+      <xloc>986</xloc>
+      <yloc>72</yloc>
+      <width>229</width>
+      <heigth>42</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <attributes>
+    <group>
+      <name>METASTORE.pentaho</name>
+      <attribute>
+        <key>Default Run Configuration</key>
+        <value>{"namespace":"pentaho","id":"Default Run Configuration","name":"Default Run Configuration","description":"Defines a default run configuration","metaStoreName":null}</value>
+      </attribute>
+    </group>
+    <group>
+      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
+      <attribute>
+        <key>Pentaho local</key>
+        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"pentaho","value":"N"},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
+      </attribute>
+    </group>
+  </attributes>
+</job>
