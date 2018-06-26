@@ -7,7 +7,7 @@
   <created_user>-</created_user>
   <created_date>2018/04/24 12:28:28.747</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018/06/15 11:47:58.865</modified_date>
+  <modified_date>2018/06/26 14:34:39.132</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -482,8 +482,8 @@
 insert into ODS_TEMPORALES.dbo.ODS_RPA_T_AM_ESTADISTICAS_TOTAL_PAX_CANAL
 select
 *,
-cast(pax_venta_directa*1.0/(
-	select sum(c.pax_venta_directa)
+isnull(cast(pax_venta_directa*1.0/(
+	select case when sum(c.pax_venta_directa)=0 then 1 else sum(c.pax_venta_directa) end
 	from (	
 		select 	
 		d.*,
@@ -501,9 +501,9 @@ cast(pax_venta_directa*1.0/(
 		and a.month=c.month
 		and a.year=c.year	
 		and c.flight_type in ('Regular','Charter')
-) as float) as peso_pax_venta_directa,
-cast(pax_venta_indirecta*1.0/(
-	select sum(c.pax_venta_indirecta)
+) as float),0) as peso_pax_venta_directa,
+isnull(cast(pax_venta_indirecta*1.0/(
+	select case when sum(c.pax_venta_indirecta)=0 then 1 else sum(c.pax_venta_indirecta) end
 	from (	
 		select 	
 		d.*,
@@ -521,7 +521,7 @@ cast(pax_venta_indirecta*1.0/(
 		and a.month=c.month
 		and a.year=c.year	
 		and c.flight_type in ('Regular','Charter')
-) as float) as peso_pax_venta_indirecta
+) as float),0) as peso_pax_venta_indirecta
 from
 (
 	select 	
@@ -534,8 +534,7 @@ from
 		and a.flight_number=b.flight_number
 		and a.boardpoint=b.boardpoint
 		and a.offpoint=b.offpoint
-) a
-;</sql>
+) a;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -611,10 +610,10 @@ SELECT a.[flight_number]
       ,isnull([Caduco Tasas],0)*[peso_pasadas] as caduco_tasas
       ,isnull([Caduco Ticket],0)*[peso_pasadas] as caduco_ticket
 	  ,isnull(cambio_volado,0)/1000000 as cambio
-      ,isnull([Comisiones de Venta],0)*[peso_pax_venta_indirecta] as comisiones_de_venta
-      ,isnull([Compensaciones],0)*[peso_pax] as compensaciones
+      ,case when [peso_pax_venta_indirecta]=0 then 0 else isnull([Comisiones de Venta],0)*[peso_pax_venta_indirecta] end as comisiones_de_venta
+      ,case when [peso_pax]=0 then 0 else isnull([Compensaciones],0)*[peso_pax] end as compensaciones
       ,isnull([Costo Carga],0)*[peso_pasadas] as costo_carga
-      ,isnull([Costos de red de ventas],0)*[peso_pax_venta_directa] as costos_red_de_ventas
+      ,case when [peso_pax_venta_directa]=0 then 0 else isnull([Costos de red de ventas],0)*[peso_pax_venta_directa] end as costos_red_de_ventas
       ,isnull([Costos Fijos comerciales y overhead Adm&amp; Finanzas],0)*[peso_pasadas] as costos_fijos_comerciales
       ,isnull([Depreciación y Amortización],0)*[peso_pasadas] as depreciacion_amortizacion
       ,[emision]/1000000 as emision
@@ -628,12 +627,12 @@ SELECT a.[flight_number]
       ,isnull([Mantenimiento],0)*[peso_block_time] as mantenimiento
       ,isnull([Mantenimiento Mayor],0)*[peso_block_time] as mantenimiento_mayor
       ,isnull([Mantenimiento Menor],0)*[peso_block_time] as mantenimiento_menor      
-      ,isnull([Marketing],0)*[peso_pax] as marketing
-      ,isnull([Medios de Pago],0)*[peso_pax_venta_directa] as medios_de_pago
+      ,case when [peso_pax]=0 then 0 else isnull([Marketing],0)*[peso_pax] end as marketing
+      ,case when [peso_pax_venta_directa]=0 then 0 else isnull([Medios de Pago],0)*[peso_pax_venta_directa] end as medios_de_pago
       ,isnull([Non Core],0)*[peso_pasadas] as non_core
       ,isnull([Operaciones de Vuelo],0)*[peso_block_time] as operaciones_de_vuelo
       ,isnull([Operaciones Terrestres],0)*[peso_pasadas] as operaciones_terrestres
-      ,isnull([Otros Sistemas de Distribución],0)*[peso_pax_venta_indirecta] as otros_sistemas_de_dist
+      ,case when [peso_pax_venta_indirecta]=0 then 0 else isnull([Otros Sistemas de Distribución],0)*[peso_pax_venta_indirecta] end as otros_sistemas_de_dist
       ,ingreso/1000000 as ingreso_pax
       ,isnull([Planet IFE],0)*[peso_pasadas] as planet_ife
       ,prioridad_volado/1000000 as prioridad
@@ -644,7 +643,7 @@ SELECT a.[flight_number]
       ,isnull([Soporte/Overhead Operaciones],0)*[peso_pasadas] as soporte_overhead_operaciones
       ,isnull([Tasas Aeroportuarias],0)*[peso_pasadas] as tasas_aeroportuarias      
       ,isnull([Variable de Pilotos],0)*[peso_block_time] as variable_pilotos     
-	  ,ingreso/pax_pago as tm
+	  ,case when pax_pago=0 then 0 else ingreso/pax_pago end as tm
 	  ,case when a.[pasadas]&gt;1 then 'Si' else 'No' end as contingencia
 	  ,null as despegue_origen
 	  ,'' as rt	  
@@ -1070,12 +1069,15 @@ group by
       <type>SQL</type>
       <sql>delete from ODS_RPA.dbo.O_RPA where departure_date between '${fecha_inicio}' and '${fecha_fin}';
 
+set datefirst 1;
+
 insert into ODS_RPA.dbo.O_RPA
 select 
 departure_date
 ,year
 ,month
 ,week
+,datepart(weekday,departure_date) as dow
 ,flight_number
 ,boardpoint
 ,offpoint
@@ -1307,24 +1309,22 @@ departure_date between '${fecha_inicio}' and '${fecha_fin}';
 
 
 
-
 update a
 set a.rt=b.RT
 FROM ODS_RPA.dbo.O_RPA a
-left join ODS_TEMPORALES.dbo.ODS_RPA_I_MAPEO_RT b on
-	a.flight_number=b.N1
-	or a.flight_number=b.n2
-where 
-departure_date between '${fecha_inicio}' and '${fecha_fin}';
+LEFT JOIN  ODS_TEMPORALES.DBO.ODS_RPA_I_MAPEO_RT B ON
+		a.boardpoint=left(b.tramo_di,3)
+	and a.offpoint=RIGHT(b.tramo_di,3)
+	and a.flight_number=b.vuelo
+	and a.year=b.año
+	and a.month=b.mes;
 
 
 
 
 update a
-set despegue_origen=(select min(std) from ods_rpa.dbo.O_RPA c where a.departure_date=c.departure_date and a.flight_number=b.n2 and a.rt=c.rt)
+set despegue_origen=(select min(std) from ods_rpa.dbo.o_rpa b where a.rt=b.rt and a.departure_date=b.departure_date)
 from ods_rpa.dbo.o_rpa a
-left join ODS_TEMPORALES.dbo.ods_rpa_i_mapeo_rt b on
-		a.rt=b.rt	
 where 
 departure_date between '${fecha_inicio}' and '${fecha_fin}';
 
@@ -1371,6 +1371,7 @@ SELECT flight_number
 					and a.departure_date=b.departure_date
 					and a.boardpoint=b.boardpoint
 					and a.offpoint=b.offpoint
+			  GROUP BY b.ac
 			  FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 1, '')
 	  ,a.aircraft_type
       ,a.agrupacion
@@ -1387,7 +1388,7 @@ SELECT flight_number
       ,sum(rpk_pago) as rpk_pago		
       ,sum(rpk_no_pago) as rpk_no_pago	
       ,sum(rpk_total) as rpk_total		 
-      ,sum(rpk_pago)/sum(ask) as fo
+	  ,case when sum(ask)=0 then 0 else sum(rpk_pago)/sum(ask) end as fo
       ,dateadd(hour,isnull(c.diferencia_horaria,-3),std) as std  -- Calcula fecha/hora local
       ,dateadd(hour,isnull(c.diferencia_horaria,-3),sta) as sta  -- Calcula fecha/hora local
 	  ,CONVERT(varchar(12),DATEADD(minute, DATEDIFF(minute, dateadd(hour,isnull(c.diferencia_horaria,-3),std),dateadd(hour,isnull(c.diferencia_horaria,-3),sta)), 0), 114) as scheduled_block_time

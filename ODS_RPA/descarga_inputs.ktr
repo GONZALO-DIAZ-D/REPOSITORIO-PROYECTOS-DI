@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2018/04/25 09:10:39.939</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/06/14 15:47:52.969</modified_date>
+    <modified_date>2018/06/22 11:17:06.501</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -713,50 +713,60 @@
     <hop>
       <from>RPA_I_EERR_ROUTING</from>
       <to>RPA_I_EERR_ROUTING </to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>ODS_RPA_I_VENTA_SSR_SEGMENTO  </from>
       <to>ODS_RPA_I_VENTA_SSR_SEGMENTO </to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>ODS_RPA_I_VENTA_AIR_SEGMENTO  </from>
       <to>ODS_RPA_I_VENTA_AIR_SEGMENTO </to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>ODS_RPA_I_LEG_SEGMENT_DISTANCE </from>
       <to>ODS_RPA_I_LEG_SEGMENT_DISTANCE</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>ODS_RPA_I_ESTADISTICAS</from>
       <to>ODS_RPA_I_ESTADISTICAS </to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>ODS_RPA_I_VOLADO_SSR</from>
       <to>ODS_RPA_I_VOLADO_SSR </to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>ODS_RPA_I_VOLADO_TKT</from>
       <to>ODS_RPA_I_VOLADO_TKT  </to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Arriendo aviones</from>
       <to>ODS_RPA_I_ARRIENDO_AVIONES</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Volado_carga</from>
       <to>ODS_RPA_I_VOLADO_CARGA</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Limpia EERR</from>
+      <to>RPA_I_EERR_ROUTING</to>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Mapeo RT</from>
+      <to>Replace in string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string</from>
       <to>ODS_RPA_I_MAPEO_RT</to>
       <enabled>Y</enabled>
     </hop>
@@ -877,8 +887,181 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>979</xloc>
-      <yloc>173</yloc>
+      <xloc>547</xloc>
+      <yloc>178</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Limpia EERR</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>delete from ODS_RPA_I_EERR_ROUTING
+where
+		año=year('${fecha_inicio}')
+	and mes=month('${fecha_inicio}');</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>547</xloc>
+      <yloc>66</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Mapeo RT</name>
+    <type>ExcelInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>\\10.30.1.74\ETLs\ENTRADAS\RPA\mapeo_rt.xls</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>tramo_di</name>
+        <type>String</type>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>vuelo</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format>#</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>rt</name>
+        <type>String</type>
+        <length>50</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>año</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format>#</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>mes</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format>#</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Hoja1</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>JXL</spreadsheet_type>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>547</xloc>
+      <yloc>290</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -920,8 +1103,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1245</xloc>
-      <yloc>173</yloc>
+      <xloc>949</xloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -981,7 +1164,7 @@ a.ask,
 a.rpk_pago,
 a.rpk_no_pago,
 a.rpk_total,
-a.rpk_pago*1.0/a.ask as fo,
+case when a.ask=0 then 0 else a.rpk_pago*1.0/a.ask end as fo,
 case when (select count(*) -- USAR PARA AGRUPAR VUELOS ORIGINALES DUPLICADOS POR CONTINGENCIA (NO AGRUPA PORQUE EL LEG NUMBER ES DISTINTO CON ESTO LO IGUALAMOS AL MINIMO LEG NUMBER DE CONTINGENCIA)
 		   from ODS_ESTADISTICAS.dbo.O_ODS_ESTADISTICA b
 		   where 
@@ -1057,6 +1240,7 @@ cast((sum(a.pax_total))*1.0/
 		and a.mes=b.mes
 		and a.año=b.año		
 		and b.flight_type in ('Regular','Charter')
+		and b.original_flight_number is not null
 ) as float) as peso_pax,
 
 cast(count(a.flight_number)*1.0/
@@ -1068,6 +1252,7 @@ cast(count(a.flight_number)*1.0/
 		and a.mes=b.mes
 		and a.año=b.año		
 		and b.flight_type in ('Regular','Charter')
+		and b.original_flight_number is not null
 ) as float) as peso_pasadas,
 
 cast((sum(a.block_time_dec))*1.0/
@@ -1079,6 +1264,7 @@ cast((sum(a.block_time_dec))*1.0/
 		and a.mes=b.mes
 		and a.año=b.año		
 		and b.flight_type in ('Regular','Charter')
+		and b.original_flight_number is not null
 ) as float) as peso_block_time,
 
 
@@ -1091,6 +1277,7 @@ cast((sum(a.block_time_dec+0.0104166666666667))*1.0/
 		and a.mes=b.mes
 		and a.año=b.año		
 		and b.flight_type in ('Regular','Charter')
+		and b.original_flight_number is not null
 ) as float) as peso_ground_time,
 
 -- DISTRIBUCION DEL FUEL
@@ -1106,6 +1293,7 @@ where
 	and a.año=b.año
 	and a.routing_eerr=b.routing_eerr	
 	and flight_type in ('Regular','Charter')
+	and b.original_flight_number is not null
 ) c) as tipo_distribucion_fuel,
 
 
@@ -1124,6 +1312,7 @@ where
 	and a.año=b.año
 	and a.routing_eerr=b.routing_eerr	
 	and flight_type in ('Regular','Charter')
+	and b.original_flight_number is not null
 ) c)='BT' 
 then -- DISTRIBUYE FUEL POR BT
 
@@ -1136,6 +1325,7 @@ then -- DISTRIBUYE FUEL POR BT
 			and a.mes=b.mes
 			and a.año=b.año		
 			and b.flight_type in ('Regular','Charter')
+			and b.original_flight_number is not null
 	) as float)
 else -- DISTRIBUYE FUEL POR BURN FUEL
 	cast((sum(a.burn_fuel)+sum(isnull(a.apu_burn_fuel,0)))*1.0/
@@ -1147,6 +1337,7 @@ else -- DISTRIBUYE FUEL POR BURN FUEL
 			and a.mes=b.mes
 			and a.año=b.año		
 			and b.flight_type in ('Regular','Charter')
+			and b.original_flight_number is not null
 	) as float)
 end as peso_fuel,
 
@@ -1159,6 +1350,7 @@ cast((sum(a.block_time_dec))*1.0/
 		and a.mes=b.mes
 		and a.año=b.año		
 		and b.flight_type in ('Regular','Charter')
+		and b.original_flight_number is not null
 ) as float) as peso_block_time_tipo_material
 
 FROM ODS_ESTADISTICAS.dbo.O_ODS_ESTADISTICA a
@@ -1166,6 +1358,7 @@ where mes=month('${fecha_inicio}')
 and año=year('${fecha_inicio}')
 and (status not in ('SCH','RTR','CNL','DEL','DEP') or boardpoint&lt;&gt;offpoint)
 and flight_type in ('Regular','Charter')
+and original_flight_number is not null
 group by 
 original_flight_number,
 original_departure_date,
@@ -1191,7 +1384,9 @@ a.aircraft_type,
 a.std,
 a.sta,
 a.atd,
-a.ata</sql>
+a.ata
+
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1205,8 +1400,8 @@ a.ata</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>552</xloc>
-      <yloc>173</yloc>
+      <xloc>130</xloc>
+      <yloc>66</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1248,8 +1443,8 @@ a.ata</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>806</xloc>
-      <yloc>173</yloc>
+      <xloc>371</xloc>
+      <yloc>66</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1292,7 +1487,7 @@ a.ata</sql>
     </remotesteps>
     <GUI>
       <xloc>371</xloc>
-      <yloc>393</yloc>
+      <yloc>402</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1352,7 +1547,50 @@ order by departure_date,flight_number</sql>
     </remotesteps>
     <GUI>
       <xloc>130</xloc>
-      <yloc>393</yloc>
+      <yloc>402</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>ODS_RPA_I_MAPEO_RT</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>10.30.1.74 - ODS_TEMPORALES</connection>
+    <schema/>
+    <table>ODS_RPA_I_MAPEO_RT</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>949</xloc>
+      <yloc>290</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1419,7 +1657,7 @@ order by departure_date,flight_number</sql>
     </remotesteps>
     <GUI>
       <xloc>371</xloc>
-      <yloc>283</yloc>
+      <yloc>290</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1473,7 +1711,7 @@ pivot (count(boleto_cupon) for canal_1 in ([D],[I])) as pvt</sql>
     </remotesteps>
     <GUI>
       <xloc>130</xloc>
-      <yloc>283</yloc>
+      <yloc>290</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1516,7 +1754,7 @@ pivot (count(boleto_cupon) for canal_1 in ([D],[I])) as pvt</sql>
     </remotesteps>
     <GUI>
       <xloc>371</xloc>
-      <yloc>173</yloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1583,7 +1821,7 @@ pivot (sum(venta) for tipo in ([emision],[reemision])) as pvt</sql>
     </remotesteps>
     <GUI>
       <xloc>130</xloc>
-      <yloc>173</yloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1625,8 +1863,8 @@ pivot (sum(venta) for tipo in ([emision],[reemision])) as pvt</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>806</xloc>
-      <yloc>283</yloc>
+      <xloc>949</xloc>
+      <yloc>402</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1701,8 +1939,8 @@ group by
       </output>
     </remotesteps>
     <GUI>
-      <xloc>552</xloc>
-      <yloc>393</yloc>
+      <xloc>547</xloc>
+      <yloc>514</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1744,8 +1982,8 @@ group by
       </output>
     </remotesteps>
     <GUI>
-      <xloc>806</xloc>
-      <yloc>393</yloc>
+      <xloc>949</xloc>
+      <yloc>514</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1833,8 +2071,8 @@ order by a.fecha_vuelo_operado
       </output>
     </remotesteps>
     <GUI>
-      <xloc>552</xloc>
-      <yloc>63</yloc>
+      <xloc>130</xloc>
+      <yloc>514</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1876,8 +2114,8 @@ order by a.fecha_vuelo_operado
       </output>
     </remotesteps>
     <GUI>
-      <xloc>806</xloc>
-      <yloc>63</yloc>
+      <xloc>371</xloc>
+      <yloc>514</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1934,8 +2172,8 @@ end)</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>130</xloc>
-      <yloc>63</yloc>
+      <xloc>748</xloc>
+      <yloc>66</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1954,7 +2192,7 @@ end)</sql>
     <schema/>
     <table>ODS_RPA_I_EERR_ROUTING</table>
     <commit>1000</commit>
-    <truncate>Y</truncate>
+    <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>N</specify_fields>
@@ -1977,8 +2215,45 @@ end)</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>371</xloc>
-      <yloc>63</yloc>
+      <xloc>949</xloc>
+      <yloc>66</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace in string</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>tramo_di</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>-</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>748</xloc>
+      <yloc>290</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2009,7 +2284,7 @@ end)</sql>
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>\\10.30.1.74\ETLs\ENTRADAS\RPA\volado_carga_enero_2018.xls</name>
+      <name>\\10.30.1.74\ETLs\ENTRADAS\RPA\volado_carga.xls</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -2110,160 +2385,8 @@ end)</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>552</xloc>
-      <yloc>283</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ODS_RPA_I_MAPEO_RT</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>10.30.1.74 - ODS_TEMPORALES</connection>
-    <schema/>
-    <table>ODS_RPA_I_MAPEO_RT</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1245</xloc>
-      <yloc>283</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Mapeo RT</name>
-    <type>ExcelInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
-    <limit>0</limit>
-    <encoding/>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-    <file>
-      <name>\\10.30.1.74\ETLs\ENTRADAS\RPA\mapeo_rt.xls</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>N1</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>N2</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>RT</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-    </fields>
-    <sheets>
-      <sheet>
-        <name>Hoja1</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <spreadsheet_type>JXL</spreadsheet_type>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>979</xloc>
-      <yloc>283</yloc>
+      <xloc>547</xloc>
+      <yloc>402</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
