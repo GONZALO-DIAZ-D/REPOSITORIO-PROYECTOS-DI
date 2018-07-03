@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>calculos</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <directory>/OPERACIONES/ODS_OPERACIONES</directory>
+  <directory>/OPERACIONES/ODS_OPERACIONAL</directory>
   <created_user>-</created_user>
   <created_date>2018/04/12 12:44:33.513</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2018/05/25 10:28:05.437</modified_date>
+  <modified_date>2018/07/03 09:54:07.740</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -632,6 +631,7 @@ left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
 	and a.operation_flight_number=b.operation_flight_number
 	and a.boardpoint=b.boardpoint
 	and a.offpoint=b.offpoint
+	and	a.leg_number=b.leg_number
 where b.operation_date is null;
 
 
@@ -644,8 +644,23 @@ right join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
 	and a.operation_flight_number=b.operation_flight_number
 	and a.boardpoint=b.boardpoint
 	and a.offpoint=b.offpoint
+	and a.leg_number=b.leg_number
 where a.operation_date is null
 and b.operation_date>cast(getdate() as date);
+
+
+-- Borra los tramos con status DEP que generaron un nuevo tramo con status CNL 
+
+delete a
+from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
+inner join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
+		a.operation_date=b.operation_date
+	and a.operation_flight_number=b.operation_flight_number
+	and a.boardpoint=b.boardpoint
+	and a.offpoint=b.offpoint
+	and a.status&lt;&gt;b.status
+	and a.boardpoint&lt;&gt;a.offpoint
+where a.status='DEP'
 
 
 
@@ -692,7 +707,8 @@ left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a on
 		a.operation_date=b.operation_date
 	and a.operation_flight_number=b.operation_flight_number
 	and a.boardpoint=b.boardpoint
-	and a.offpoint=b.offpoint;
+	and a.offpoint=b.offpoint
+	and a.leg_number=b.leg_number;
 
 
 
@@ -704,7 +720,7 @@ set a.block_off_fuel=b.block_off_fuel,
 	a.burn_fuel=b.consumo_klg,
 	a.fuel_uplift=b.carguio_lts,
 	a.apu_burn_fuel=b.apu_kg,
-	a.source_fuel=(case when b.fuente='ok' then 'FL' else 'FS' end)
+	a.source_fuel=(case when b.fuente='FL' then 'FL' else 'FS' end)
 from ODS_TEMPORALES.dbo.ODS_OPE_I_COMBUSTIBLE b
 left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a on
 		a.operation_date=b.fecha_utc
