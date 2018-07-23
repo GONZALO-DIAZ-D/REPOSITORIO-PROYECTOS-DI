@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>calculos</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <directory>/COMERCIAL/RPA</directory>
+  <directory>/COMERCIAL/ODS_RPA</directory>
   <created_user>-</created_user>
   <created_date>2018/04/24 12:28:28.747</created_date>
-  <modified_user>-</modified_user>
-  <modified_date>2018/07/11 16:15:26.280</modified_date>
+  <modified_user>admin</modified_user>
+  <modified_date>2018/07/23 16:20:51.085</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -1108,7 +1109,7 @@ departure_date
 ,std
 ,sta
 ,scheduled_block_time
-,cast(DATEDIFF(minute,'00:00:00',cast(CONVERT(varchar(12),DATEADD(minute, DATEDIFF(minute, std,sta), 0), 114) as datetime))as float)/(60*24)*24 as scheduled_block_time_dec
+,cast(DATEDIFF(minute,'00:00:00',cast(CONVERT(varchar(12),DATEADD(minute, DATEDIFF(minute, std,sta), 0), 114) as datetime))as float)/(60*24) as scheduled_block_time_dec
 ,atd
 ,ata
 ,real_block_time
@@ -1116,8 +1117,8 @@ departure_date
 ,burn_fuel
 ,apu_burn_fuel
 ,total_burn_fuel
-,block_time_dec*24 as real_block_time_dec
-,ground_time_dec*24 as ground_time_dec
+,block_time_dec
+,ground_time_dec
 ,tipo_distribucion_fuel
 ,aeropuerto
 ,arriendo_aviones
@@ -1233,7 +1234,7 @@ departure_date
 	+
 (	arriendo_aviones+
 	seguros)
-	+
+	-
 (	operaciones_de_vuelo+
 	operaciones_terrestres+
 	mantenimiento+
@@ -1311,7 +1312,6 @@ where
 departure_date between '${fecha_inicio}' and '${fecha_fin}';
 
 
--- Mapea Pares de vuelo
 
 update a
 set a.rt=b.RT
@@ -1324,7 +1324,7 @@ LEFT JOIN  ODS_TEMPORALES.DBO.ODS_RPA_I_MAPEO_RT B ON
 	and a.month=b.mes;
 
 
--- Agrega hora de despegue del primer vuelo del RT
+
 
 update a
 set despegue_origen=(select min(std) from ods_rpa.dbo.o_rpa b where a.rt=b.rt and a.departure_date=b.departure_date)
