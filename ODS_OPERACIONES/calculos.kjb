@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2018/04/12 12:44:33.513</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2018/07/10 15:18:39.187</modified_date>
+  <modified_date>2018/07/24 10:43:52.663</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -468,7 +468,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>94</xloc>
+      <xloc>95</xloc>
       <yloc>206</yloc>
     </entry>
     <entry>
@@ -489,7 +489,7 @@
       <trans_object_id/>
       <filename/>
       <transname>bajada_live</transname>
-      <directory/>
+      <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -628,7 +628,8 @@ null,
 a.leg_number,
 a.diferencia_horaria,
 a.depdelay4,
-a.depdur4
+a.depdur4,
+null
 from ODS_TEMPORALES.dbo.ODS_OPE_T_LEG a
 left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
 		a.operation_date=b.operation_date
@@ -639,7 +640,7 @@ left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
 where b.operation_date is null;
 
 
--- Borra los tramos del ODS que no existen en el Plan Operacional
+-- Borra los tramos del ODS que no existen en el Plan Operacional+Live
 
 delete b
 from ODS_TEMPORALES.dbo.ODS_OPE_T_LEG a
@@ -650,10 +651,10 @@ right join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES b on
 	and a.offpoint=b.offpoint
 	and a.leg_number=b.leg_number
 where a.operation_date is null
-and b.operation_date>cast(getdate() as date);
+and b.operation_date>=(select min(operation_date) from ODS_TEMPORALES.dbo.ODS_OPE_T_LEG);
 
 
--- Borra los tramos con status DEP que generaron un nuevo tramo con status CNL 
+-- Limpia tramos casos borde
 
 delete a
 from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a
@@ -733,8 +734,20 @@ left join ODS_OPERACIONES.dbo.O_ODS_OPERACIONES a on
 	and a.boardpoint=b.origen
 	and a.offpoint=b.destino
 	and a.ac=b.matricula
-	and a.leg_number=b.leg
+	and a.leg_number=b.leg;
 
+
+
+-- Agrega row number de llave generada para PowerBI
+
+with agrega_clave as
+(
+  select *
+    , clave2=row_number() over(partition by local_date,flight_number,boardpoint,offpoint,leg_number order by local_date,flight_number,boardpoint,offpoint,leg_number)
+  from ODS_OPERACIONES.dbo.O_ODS_OPERACIONES  
+)
+update agrega_clave
+set clave = clave2
 </sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
@@ -777,7 +790,7 @@ from ods_operaciones.dbo.o_ods_operaciones;
       <trans_object_id/>
       <filename/>
       <transname>bajada_plan</transname>
-      <directory/>
+      <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
